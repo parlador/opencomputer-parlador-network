@@ -22,8 +22,8 @@ local files = {
 		path = "/home/.init"
 	},
 	{
-		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/startup/shrc.d/00-init.lua",
-		path = "/home/.shrc.d/00-init.lua"
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/startup/init.d/00-init.lua",
+		path = "/home/.init.d/00-init.lua"
 	},
 }
 
