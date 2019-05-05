@@ -10,28 +10,12 @@ local internet = component.internet
 -- Specify required files for downloading
 local files = {
 	{
-		url = "https://raw.githubusercontent.com/IgorTimofeev/AdvancedLua/master/AdvancedLua.lua",
-		path = "/lib/advancedLua.lua"
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/reactor_control.lua?token=ACKJDJ6BRHORA6IVZBFLLM24Z43FS",
+		path = "/app/reactor_control.lua"
 	},
 	{
-		url = "https://raw.githubusercontent.com/IgorTimofeev/Color/master/Color.lua",
-		path = "/lib/color.lua"
-	},
-	{
-		url = "https://raw.githubusercontent.com/IgorTimofeev/Image/master/OCIF.lua",
-		path = "/lib/FormatModules/OCIF.lua"
-	},
-	{
-		url = "https://raw.githubusercontent.com/IgorTimofeev/Image/master/Image.lua",
-		path = "/lib/image.lua"
-	},
-	{
-		url = "https://raw.githubusercontent.com/IgorTimofeev/DoubleBuffering/master/DoubleBuffering.lua",
-		path = "/lib/doubleBuffering.lua"
-	},
-	{
-		url = "https://raw.githubusercontent.com/IgorTimofeev/GUI/master/GUI.lua",
-		path = "/lib/GUI.lua"
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/lib/gui_setup.lua?token=ACKJDJ6TK5E3F66XHBN5SKK4Z43AK",
+		path = "/tmp/gui_setup.lua"
 	},
 }
 
