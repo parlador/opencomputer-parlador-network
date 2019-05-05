@@ -12,7 +12,7 @@ local internet = component.internet
 local files = {
 	{
 		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/app/reactor_control_setup.lua?token=ACKJDJ2FMIKQPLI3LRO5WRK4Z44GU",
-		path = "/tmp/app/reactor_control_setup.lua"
+		path = "/tmp/setup/app/reactor_control_setup.lua"
 	},
 }
 
