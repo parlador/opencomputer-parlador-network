@@ -15,7 +15,7 @@ local files = {
 	},
 	{
 		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/lib/gui_setup.lua?token=ACKJDJ6TK5E3F66XHBN5SKK4Z43AK",
-		path = "/tmp/gui_setup.lua"
+		path = "/tmp/setup/lib/gui_setup.lua"
 	},
 }
 
