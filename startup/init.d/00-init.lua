@@ -131,7 +131,7 @@ end
 local function download(url, path, totalProgress)
 	fs.makeDirectory(fs.path(path))
 	if fs.exists(path) then
-		os.execute("rm "..path)
+		fs.remove(path)
 	end
 	local file, fileReason = io.open(path, "w")
 	if file then
