@@ -1,0 +1,5 @@
+
+
+for i in fs.list("/home/.shrc.d/") do
+    os.execute("/home/.shrc.d/"..i)
+end
