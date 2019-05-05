@@ -14,6 +14,10 @@ local files = {
 		path = "/tmp/setup/base/app_setup.lua"
 	},
 	{
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/startup/shrc",
+		path = "/home/.shrc"
+	},
+	{
 		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/startup/shrc.d/00-init.lua",
 		path = "/home/.shrc.d/00-init.lua"
 	},
