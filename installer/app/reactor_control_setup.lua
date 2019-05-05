@@ -30,7 +30,7 @@ local properties = {
 	-- Customize localization as you want to
 	localization = {
 		-- Specify title of your installer
-		title = "BIGREACTOR app installer",
+		title = "reactor control app installer",
 		-- Use <currentProgress>, <totalProgress> and <currentFile> text insertions to automatically display their values
 		currentFile = "Downloading \"<currentFile>\"",
 		totalProgress = "Total progress: <totalProgress>%",
