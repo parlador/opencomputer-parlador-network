@@ -14,7 +14,7 @@ local files = {
 		path = "/tmp/setup/base/app_setup.lua"
 	},
 	{
-		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/base/app_setup.lua?token=ACKJDJ5DLUGA6VCU5OIN7WK4Z457IU",
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/startup/shrc.d/00-init.lua",
 		path = "/home/.shrc.d/00-init.lua"
 	},
 }
