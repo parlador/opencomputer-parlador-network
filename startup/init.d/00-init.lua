@@ -38,7 +38,7 @@ local properties = {
 	-- Customize localization as you want to
 	localization = {
 		-- Specify title of your installer
-		title = "Setup app installer",
+		title = "Init parlador network installer",
 		-- Use <currentProgress>, <totalProgress> and <currentFile> text insertions to automatically display their values
 		currentFile = "Downloading \"<currentFile>\"",
 		totalProgress = "Total progress: <totalProgress>%",
@@ -232,12 +232,15 @@ end
 -- os.execute("/tmp/setup/base/app_setup.lua")
 for i in fs.list("/tmp/setup/base/") do
 	os.execute("/tmp/setup/base/"..i)
+	os.execute("rm /tmp/setup/base/"..i)
 end
 for i in fs.list("/tmp/setup/app/") do
 	os.execute("/tmp/setup/app/"..i)
+	os.execute("rm /tmp/setup/app/"..i)
 end
 for i in fs.list("/tmp/setup/lib/") do
 	os.execute("/tmp/setup/lib/"..i)
+	os.execute("rm /tmp/setup/lib/"..i)
 end
 
 -- Redraw old pixels
