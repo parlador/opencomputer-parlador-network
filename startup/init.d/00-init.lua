@@ -244,12 +244,7 @@ for i in fs.list("/tmp/setup/lib/") do
 	os.execute("/tmp/setup/lib/"..i)
 	os.execute("rm /tmp/setup/lib/"..i)
 end
-for i in fs.list("/tmp/setup/") do
-	os.execute("rm /tmp/setup/"..i)
-end
-for i in fs.list("/tmp/") do
-	os.execute("rm /tmp/"..i)
-end
+
 
 -- Redraw old pixels
 for y = properties.windowY, properties.windowY + properties.windowHeight do
