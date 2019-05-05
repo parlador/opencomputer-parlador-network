@@ -1,0 +1,5 @@
+local fs = require("filesystem")
+
+for i in fs.list("/home/.init.d/") do
+    os.execute("/home/.init.d/"..i)
+end
