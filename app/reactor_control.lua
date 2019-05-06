@@ -2,6 +2,7 @@ local GUI = require("GUI")
 component = require("component")
 ReactorAdresse = ""
 RodLevelLimit = 100
+RodLevel = 100
 TempLimit = 970
 PowerTrigger = 95
 SteamTrigger = 95
