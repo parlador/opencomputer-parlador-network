@@ -6,11 +6,13 @@ TempLimit = 970
 PowerTrigger = 95
 SteamTrigger = 95
  
+--------------------------------------------------------------------------------
  
 for address, name in component.list("bigreactor", false) do
   ReactorAdresse = address
 end
  
+--------------------------------------------------------------------------------
  
 function tablelength(T)
   local count = 0
@@ -107,9 +109,22 @@ end
 function ControlReactor()
     if switchButton.switch.state == true then
         component.invoke(ReactorAdresse, "setActive", true)
+        if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
+            ReactorActiveCooling()
+        else
+            ReactorPassiveCooling()
+        end
     else
         component.invoke(ReactorAdresse, "setActive", false)
     end
+end
+
+function ReactorActiveCooling()
+ 
+ 
+end
+
+function ReactorPassiveCooling()
  
  
 end
@@ -118,10 +133,7 @@ end
  
 application = GUI.application()
 application:addChild(GUI.panel(1, 1, application.width, application.height, 0x2D2D2D))
- 
- 
- 
- 
+  
  
 -- Add a regular button with switchMode state
  
@@ -219,6 +231,8 @@ application.eventHandler = function(application, object, eventname, ...)
 end
  
 --------------------------------------------------------------------------------
+
+
 i = 1
 application:draw(true)
 application:start(1)
