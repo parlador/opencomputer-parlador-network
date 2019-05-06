@@ -132,8 +132,23 @@ end
 
 
 function ManageTemperatureAndRod()
- 
- 
+     if reactID.getFuelTemperature() > 970 then
+            heatover = (round(reactID.getFuelTemperature(), 0) - 970)
+            if (heatover*2) > 99 then
+                    reactID.setControlRodLevel(rodnumber,100)
+            elseif (heatover*2) < 1 then
+                reactID.setControlRodLevel(rodnumber,0)
+            else
+                reactID.setControlRodLevel(rodnumber,(heatover*2))
+            end
+    else
+        reactID.setControlRodLevel(rodnumber,0)
+    end
+end
+
+function SetAllRodLevel(LevelSet)
+   RodLevel = LevelSet
+   
 end
  
 --------------------------------------------------------------------------------
