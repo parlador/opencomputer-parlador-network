@@ -109,46 +109,64 @@ end
  
 function ControlReactor()
     if switchButton.switch.state == true then
-        component.invoke(ReactorAdresse, "setActive", true)
         if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
             ReactorActiveCooling()
         else
             ReactorPassiveCooling()
         end
+        ManageTemperatureAndRod()
     else
         component.invoke(ReactorAdresse, "setActive", false)
     end
 end
 
 function ReactorActiveCooling()
- 
+        if round(GetPourcentageHotFuel(),0) < SliderSteamTrigger.value then
+                component.invoke(ReactorAdresse, "setActive", true)
+        else
+                component.invoke(ReactorAdresse, "setActive", false)
+        end
  
 end
 
 function ReactorPassiveCooling()
- 
+        if round(GetPourcentagePower(),0) < SliderPowerTrigger.value then
+                component.invoke(ReactorAdresse, "setActive", true)
+        else
+                component.invoke(ReactorAdresse, "setActive", false)
+        end
  
 end
 
 
 function ManageTemperatureAndRod()
-     if reactID.getFuelTemperature() > 970 then
-            heatover = (round(reactID.getFuelTemperature(), 0) - 970)
+    fueltemp = round(component.invoke(ReactorAdresse, "getFuelTemperature"),0)
+    targettemp = SliderTempLimit.value
+    
+     if fueltemp > targettemp then
+            heatover = fueltemp - targettemp)
             if (heatover*2) > 99 then
-                    reactID.setControlRodLevel(rodnumber,100)
+                SetAllRodLevel(100)
             elseif (heatover*2) < 1 then
-                reactID.setControlRodLevel(rodnumber,0)
+                SetAllRodLevel(0)
             else
-                reactID.setControlRodLevel(rodnumber,(heatover*2))
+                SetAllRodLevel((heatover*2))
             end
     else
-        reactID.setControlRodLevel(rodnumber,0)
+        SetAllRodLevel(0)
     end
 end
 
 function SetAllRodLevel(LevelSet)
    RodLevel = LevelSet
-   
+   RodLimit = SliderLevelLimit.value
+
+      if LevelSet > RodLimit then
+          component.invoke(ReactorAdresse, "setAllControlRodLevels",RodLimit)
+      else
+          component.invoke(ReactorAdresse, "setAllControlRodLevels",LevelSet)
+      end
+
 end
  
 --------------------------------------------------------------------------------
