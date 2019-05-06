@@ -144,7 +144,7 @@ function ManageTemperatureAndRod()
     targettemp = SliderTempLimit.value
     
      if fueltemp > targettemp then
-            heatover = fueltemp - targettemp)
+            heatover = (fueltemp - targettemp)
             if (heatover*2) > 99 then
                 SetAllRodLevel(100)
             elseif (heatover*2) < 1 then
