@@ -128,6 +128,12 @@ function ReactorPassiveCooling()
  
  
 end
+
+
+function ManageTemperatureAndRod()
+ 
+ 
+end
  
 --------------------------------------------------------------------------------
  
