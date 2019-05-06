@@ -117,14 +117,17 @@ function ControlReactor()
         ManageTemperatureAndRod()
     else
         component.invoke(ReactorAdresse, "setActive", false)
+        ReactorStatus.text = "Disabled"
     end
 end
 
 function ReactorActiveCooling()
         if round(GetPourcentageHotFuel(),0) < SliderSteamTrigger.value then
                 component.invoke(ReactorAdresse, "setActive", true)
+                ReactorStatus.text = "Running"
         else
                 component.invoke(ReactorAdresse, "setActive", false)
+                ReactorStatus.text = "Standby"
         end
  
 end
@@ -132,8 +135,10 @@ end
 function ReactorPassiveCooling()
         if round(GetPourcentagePower(),0) < SliderPowerTrigger.value then
                 component.invoke(ReactorAdresse, "setActive", true)
+                ReactorStatus.text = "Running"
         else
                 component.invoke(ReactorAdresse, "setActive", false)
+                ReactorStatus.text = "Standby"
         end
  
 end
@@ -160,7 +165,7 @@ end
 function SetAllRodLevel(LevelSet)
    RodLevel = LevelSet
    RodLimit = SliderLevelLimit.value
-
+   CurrentRodLevel.text = RodLimit
       if LevelSet > RodLimit then
           component.invoke(ReactorAdresse, "setAllControlRodLevels",RodLimit)
       else
@@ -195,7 +200,7 @@ application:addChild(GUI.text(2, 6, 0x999999, "Reactor Temperature:"))
 ReactorTemp = application:addChild(GUI.text(24, 6, 0x999999, "0 C"))
  
 application:addChild(GUI.text(2, 7, 0x999999, "Reactor Rod level:"))
-RodLevel = application:addChild(GUI.text(24, 7, 0x999999, "100"))
+CurrentRodLevel = application:addChild(GUI.text(24, 7, 0x999999, "100"))
  
 application:addChild(GUI.text(2, 8, 0x999999, "Reactor Rod Limit:"))
 SliderLevelLimit = application:addChild(GUI.slider(24, 8, 14, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, RodLevelLimit, false, ""))
