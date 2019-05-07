@@ -244,22 +244,25 @@ OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
  
  
 --------------------------------------------------------------------------------
- 
-chartTemperature = application:addChild(GUI.chart(39, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
+ -- line1
+chartTemperature = application:addChild(GUI.chart(58, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
 application:addChild(GUI.text(45, 10, 0xFFFFFF, "   FUEL TEMPERATURE       "))
-table.insert(chartTemperature.values,1,{0, 0})
- 
-chartReact = application:addChild(GUI.chart(39, 11, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
-application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
-table.insert(chartReact.values,1,{0, 0})
- 
-chartFuel = application:addChild(GUI.chart(70, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))
+--table.insert(chartTemperature.values,1,{0, 0})
+
+chartFuel = application:addChild(GUI.chart(109, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))
 application:addChild(GUI.text(73, 10, 0xFFFFFF, "       FUEL TANK           "))
-table.insert(chartFuel.values,1,{0, 0})
+--table.insert(chartFuel.values,1,{0, 0})
  
-chartPower = application:addChild(GUI.chart(109, 22, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
+--line 2
+chartReact = application:addChild(GUI.chart(58, 12, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
+application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
+--table.insert(chartReact.values,1,{0, 0})
+ 
+-- line 33
+ 
+chartPower = application:addChild(GUI.chart(109, 23, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
 application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
-table.insert(chartPower.values,1,{0, 0})
+--table.insert(chartPower.values,1,{0, 0})
  
 application.eventHandler = function(application, object, eventname, ...)
     if     eventname == "touch" then
