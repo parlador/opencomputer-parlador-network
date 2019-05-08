@@ -198,7 +198,7 @@ end
 --------------------------------------------------------------------------------
  
 application = GUI.application()
-application:addChild(GUI.panel(1, 1, application.width, application.height, 0x2D2D2D))
+
   
  
 -- Add a regular button with switchMode state
@@ -265,6 +265,9 @@ OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
  
  
 --------------------------------------------------------------------------------
+-- graph zone
+application:addChild(GUI.panel(57, 1, 103, application.height, 0x2D2D2D))
+
  -- line1
 chartTemperature = application:addChild(GUI.chart(58, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
 --application:addChild(GUI.text(45, 10, 0xFFFFFF, "   FUEL TEMPERATURE       "))
