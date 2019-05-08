@@ -36,7 +36,8 @@ function UpdateGUI()
    
     table.insert(chartReact.values, {i, component.invoke(ReactorAdresse, "getFuelReactivity")})
  
-    table.insert(chartPower.values, {i, GetPourcentagePower()})
+    
+    
  
     table.insert(chartTemperature.values, {i, component.invoke(ReactorAdresse, "getFuelTemperature")})
  
@@ -50,10 +51,14 @@ function UpdateGUI()
  
     if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
         OutputTank.value = round(GetPourcentageHotFuel(),0)
+        table.insert(chartPower.values, {i, GetPourcentageHotFuel()})
         OutputRate.text = round(component.invoke(ReactorAdresse, "getHotFluidProducedLastTick"),1).." MB/T"
+        table.insert(chartPowerOuput.values, {i, component.invoke(ReactorAdresse, "getHotFluidProducedLastTick")})
     else
         OutputTank.value = round(GetPourcentagePower(),0)
+        table.insert(chartPower.values, {i, GetPourcentagePower()})
         OutputRate.text = round(component.invoke(ReactorAdresse, "getEnergyProducedLastTick"),1).." RF/T"
+        table.insert(chartPowerOuput.values, {i, component.invoke(ReactorAdresse, "getEnergyProducedLastTick")})
     end
  
     if tablelength(chartReact.values) > 60 then
@@ -72,6 +77,12 @@ function UpdateGUI()
         table.remove(chartPower.values, 1)
         table.insert(chartPower.values,1,{i-60, 0})
         table.remove(chartPower.values, 2)
+       
+    end
+    if tablelength(chartPowerOuput.values) > 61 then
+        table.remove(chartPowerOuput.values, 1)
+        table.insert(chartPowerOuput.values,1,{i-60, 0})
+        table.remove(chartPowerOuput.values, 2)
        
     end
     if tablelength(chartTemperature.values) > 60 then
@@ -246,23 +257,27 @@ OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
 --------------------------------------------------------------------------------
  -- line1
 chartTemperature = application:addChild(GUI.chart(58, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
-application:addChild(GUI.text(45, 10, 0xFFFFFF, "   FUEL TEMPERATURE       "))
---table.insert(chartTemperature.values,1,{0, 0})
+--application:addChild(GUI.text(45, 10, 0xFFFFFF, "   FUEL TEMPERATURE       "))
+table.insert(chartTemperature.values,1,{0, 0})
 
 chartFuel = application:addChild(GUI.chart(109, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))
-application:addChild(GUI.text(73, 10, 0xFFFFFF, "       FUEL TANK           "))
---table.insert(chartFuel.values,1,{0, 0})
+--application:addChild(GUI.text(73, 10, 0xFFFFFF, "       FUEL TANK           "))
+table.insert(chartFuel.values,1,{0, 0})
  
 --line 2
 chartReact = application:addChild(GUI.chart(58, 12, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
-application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
---table.insert(chartReact.values,1,{0, 0})
+--application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
+table.insert(chartReact.values,1,{0, 0})
  
 -- line 33
+
+chartPowerOuput = application:addChild(GUI.chart(58, 23, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
+--application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
+table.insert(chartPowerOuput.values,1,{0, 0})
  
 chartPower = application:addChild(GUI.chart(109, 23, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
-application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
---table.insert(chartPower.values,1,{0, 0})
+--application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
+table.insert(chartPower.values,1,{0, 0})
  
 application.eventHandler = function(application, object, eventname, ...)
     if     eventname == "touch" then
