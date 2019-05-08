@@ -36,7 +36,7 @@ function UpdateGUI()
    
     table.insert(chartReact.values, {i, component.invoke(ReactorAdresse, "getFuelReactivity")})
  
-    
+    table.insert(chartRod.values, {i, CurrentRodLevel.text})
     
  
     table.insert(chartTemperature.values, {i, component.invoke(ReactorAdresse, "getFuelTemperature")})
@@ -65,6 +65,12 @@ function UpdateGUI()
         table.remove(chartReact.values, 1)
         table.insert(chartReact.values,1,{i-60, 0})
         table.remove(chartReact.values, 2)
+ 
+    end
+     if tablelength(chartRod.values) > 60 then
+        table.remove(chartRod.values, 1)
+        table.insert(chartRod.values,1,{i-60, 0})
+        table.remove(chartRod.values, 2)
  
     end
     if tablelength(chartFuel.values) > 61 then
@@ -176,10 +182,12 @@ end
 function SetAllRodLevel(LevelSet)
    RodLevel = LevelSet
    RodLimit = SliderLevelLimit.value
-   CurrentRodLevel.text = RodLimit
+   
       if LevelSet > RodLimit then
+          CurrentRodLevel.text = RodLimit
           component.invoke(ReactorAdresse, "setAllControlRodLevels",RodLimit)
       else
+          CurrentRodLevel.text = LevelSet
           component.invoke(ReactorAdresse, "setAllControlRodLevels",LevelSet)
       end
 
@@ -268,10 +276,13 @@ table.insert(chartFuel.values,1,{0, 0})
 chartReact = application:addChild(GUI.chart(58, 12, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
 --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
 table.insert(chartReact.values,1,{0, 0})
- 
--- line 33
 
-chartPowerOuput = application:addChild(GUI.chart(58, 23, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
+chartRod = application:addChild(GUI.chart(109, 12, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
+--application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
+table.insert(chartRod.values,1,{0, 0})
+
+-- line 33
+chartPowerOuput = application:addChild(GUI.chart(58, 23, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))
 --application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
 table.insert(chartPowerOuput.values,1,{0, 0})
  
