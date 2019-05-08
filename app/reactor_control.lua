@@ -181,7 +181,7 @@ end
 
 function SetAllRodLevel(LevelSet)
    
-   RodLimit = int(SliderLevelLimit.value)
+   RodLimit = tonumber(SliderLevelLimit.value)
    
       if LevelSet > RodLimit then
           CurrentRodLevel.text = RodLimit
