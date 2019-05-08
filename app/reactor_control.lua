@@ -259,8 +259,12 @@ end
 --OutputTank = application:addChild(GUI.text(24, 17, 0x999999, "0 %"))
 OutputTank = application:addChild(GUI.progressBar(24, 17, 14, 0xA82B2B, 0xEEEEEE, 0xEEEEEE, 0, true, false))
 OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
- 
- 
+
+--------------------------------------------------------------------------------
+-- control zone
+application:addChild(GUI.panel(1, 23, 27, 10, 0x2D2D2D))
+
+application:addChild(GUI.panel(29, 23, 56, 10, 0x2D2D2D))
  
  
  
