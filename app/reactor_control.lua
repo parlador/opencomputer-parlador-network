@@ -36,7 +36,7 @@ function UpdateGUI()
    
     table.insert(chartReact.values, {i, component.invoke(ReactorAdresse, "getFuelReactivity")})
  
-    table.insert(chartRod.values, {i, CurrentRodLevel.text})
+    table.insert(chartRod.values, {i, RodLevel})
     
  
     table.insert(chartTemperature.values, {i, component.invoke(ReactorAdresse, "getFuelTemperature")})
@@ -180,14 +180,16 @@ function ManageTemperatureAndRod()
 end
 
 function SetAllRodLevel(LevelSet)
-   RodLevel = LevelSet
+   
    RodLimit = SliderLevelLimit.value
    
       if LevelSet > RodLimit then
           CurrentRodLevel.text = RodLimit
+          RodLevel = RodLimit
           component.invoke(ReactorAdresse, "setAllControlRodLevels",RodLimit)
       else
           CurrentRodLevel.text = LevelSet
+          RodLevel = LevelSet
           component.invoke(ReactorAdresse, "setAllControlRodLevels",LevelSet)
       end
 
