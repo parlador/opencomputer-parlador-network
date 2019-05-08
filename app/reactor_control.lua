@@ -198,7 +198,7 @@ end
 --------------------------------------------------------------------------------
  
 application = GUI.application()
-
+application:addChild(GUI.panel(1, 2, 54, 21, 0x2D2D2D))
   
  
 -- Add a regular button with switchMode state
