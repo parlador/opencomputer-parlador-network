@@ -274,32 +274,32 @@ application:addChild(GUI.panel(29, 29, 55, 5, 0x2D2D2D))
  
 --------------------------------------------------------------------------------
 -- graph zone
-application:addChild(GUI.panel(57, 1, 103, application.height, 0x2D2D2D))
+application:addChild(GUI.panel(57, 2, 103, application.height, 0x2D2D2D))
 
  -- line1
-chartTemperature = application:addChild(GUI.chart(58, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
+chartTemperature = application:addChild(GUI.chart(58, 2, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
 --application:addChild(GUI.text(45, 10, 0xFFFFFF, "   FUEL TEMPERATURE       "))
 table.insert(chartTemperature.values,1,{0, 0})
 
-chartFuel = application:addChild(GUI.chart(109, 1, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))
+chartFuel = application:addChild(GUI.chart(109, 2, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))
 --application:addChild(GUI.text(73, 10, 0xFFFFFF, "       FUEL TANK           "))
 table.insert(chartFuel.values,1,{0, 0})
  
 --line 2
-chartReact = application:addChild(GUI.chart(58, 12, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
+chartReact = application:addChild(GUI.chart(58, 13, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
 --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
 table.insert(chartReact.values,1,{0, 0})
 
-chartRod = application:addChild(GUI.chart(109, 12, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
+chartRod = application:addChild(GUI.chart(109, 13, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
 --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
 table.insert(chartRod.values,1,{0, 0})
 
 -- line 33
-chartPowerOuput = application:addChild(GUI.chart(58, 23, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))
+chartPowerOuput = application:addChild(GUI.chart(58, 24, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))
 --application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
 table.insert(chartPowerOuput.values,1,{0, 0})
  
-chartPower = application:addChild(GUI.chart(109, 23, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
+chartPower = application:addChild(GUI.chart(109, 24, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
 --application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
 table.insert(chartPower.values,1,{0, 0})
  
