@@ -262,13 +262,13 @@ OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
 
 --------------------------------------------------------------------------------
 -- control zone
-application:addChild(GUI.panel(1, 23, 27, 5, 0x2D2D2D))
+application:addChild(GUI.panel(1, 23, 26, 5, 0x2D2D2D))
 
-application:addChild(GUI.panel(29, 23, 55, 5, 0x2D2D2D))
+application:addChild(GUI.panel(29, 23, 26, 5, 0x2D2D2D))
 
-application:addChild(GUI.panel(1, 29, 27, 5, 0x2D2D2D))
+application:addChild(GUI.panel(1, 29, 26, 5, 0x2D2D2D))
 
-application:addChild(GUI.panel(29, 29, 55, 5, 0x2D2D2D))
+application:addChild(GUI.panel(29, 29, 26, 5, 0x2D2D2D))
  
  
  
