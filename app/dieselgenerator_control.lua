@@ -81,10 +81,10 @@ function UpdateGUI()
 end
 
 function ControlGenerator()
-    if GetPourcentageBankPower < 85 then
+    if GetPourcentageBankPower() < 85 then
         EnablingProduction()
     end
-    if GetPourcentageBankPower  > 95 then
+    if GetPourcentageBankPower()  > 95 then
             DisablingProduction()
     end
   
