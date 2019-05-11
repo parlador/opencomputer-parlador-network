@@ -198,12 +198,10 @@ end
 --------------------------------------------------------------------------------
  
 application = GUI.application()
-application:addChild(GUI.panel(1, 2, 54, 1, 0x1F4582))
-application:addChild(GUI.text(17, 2, 0xFFFFFF, "REACTOR INFORMATION"))
-
 
 application:addChild(GUI.panel(1, 2, 54, 20, 0x2D2D2D))
-  
+application:addChild(GUI.panel(1, 2, 54, 1, 0x1F4582))
+application:addChild(GUI.text(17, 2, 0xFFFFFF, "REACTOR INFORMATION"))
  
 -- Add a regular button with switchMode state
  
@@ -286,7 +284,7 @@ if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
     application:addChild(GUI.text(30, 29, 0x999999, "   STEAM TANK TRIGGER   "))
     SliderSteamTrigger = application:addChild(GUI.slider(31, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, SteamTrigger, false, ""))
 else
-    application:addChild(GUI.text(30, 30, 0x999999, "   POWER BANK TRIGGER   "))
+    application:addChild(GUI.text(30, 29, 0x999999, "   POWER BANK TRIGGER   "))
     SliderPowerTrigger = application:addChild(GUI.slider(31, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, PowerTrigger, false, ""))
 end
  
