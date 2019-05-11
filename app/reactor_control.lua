@@ -125,7 +125,7 @@ function GetPourcentageHotFuel()
 end
  
 function ControlReactor()
-    if switchButton.switch.state == true then
+    if switchButton.state == true then
         if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
             ReactorActiveCooling()
         else
@@ -198,14 +198,18 @@ end
 --------------------------------------------------------------------------------
  
 application = GUI.application()
+application:addChild(GUI.panel(1, 1, 1, 160, 0x1F4582))
+application:addChild(GUI.text(14, 1, 0xFFFFFF, "REACTOR CONTROL"))
+
+
 application:addChild(GUI.panel(1, 2, 54, 20, 0x2D2D2D))
   
  
 -- Add a regular button with switchMode state
  
-switchButton =application:addChild(GUI.switchAndLabel(2, 3, 32, 8, 0x66DB80, 0x1D1D1D, 0xEEEEEE, 0x999999, "Reactor Enabled:", component.invoke(ReactorAdresse, "getActive")))
+
  
-application:addChild(GUI.text(14, 1, 0xFFFFFF, "REACTOR CONTROL"))
+
  
 application:addChild(GUI.text(2, 4, 0x999999, "Reactor Mode:"))
 if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
@@ -223,8 +227,7 @@ ReactorTemp = application:addChild(GUI.text(24, 6, 0x999999, "0 C"))
 application:addChild(GUI.text(2, 7, 0x999999, "Reactor Rod level:"))
 CurrentRodLevel = application:addChild(GUI.text(24, 7, 0x999999, "100"))
  
-application:addChild(GUI.text(2, 8, 0x999999, "Reactor Rod Limit:"))
-SliderLevelLimit = application:addChild(GUI.slider(24, 8, 14, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, RodLevelLimit, false, ""))
+
  
 application:addChild(GUI.text(2, 10, 0x999999, "Fuel Temperature:"))
 FuelTemp = application:addChild(GUI.text(24, 10, 0x999999, "0 C"))
@@ -263,13 +266,20 @@ OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
 --------------------------------------------------------------------------------
 -- control zone
 application:addChild(GUI.panel(1, 23, 26, 5, 0x2D2D2D))
+-- label
+switchButton =application:addChild(GUI.switch(2, 2, 24, 0x66DB80, 0x1D1D1D, 0xEEEEEE, component.invoke(ReactorAdresse, "getActive")))
 
 application:addChild(GUI.panel(29, 23, 26, 5, 0x2D2D2D))
+application:addChild(GUI.text(30, 24, 0x999999, "Reactor Rod Limit:"))
+SliderLevelLimit = application:addChild(GUI.slider(30, 26, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, RodLevelLimit, false, ""))
+
 
 application:addChild(GUI.panel(1, 29, 26, 5, 0x2D2D2D))
+-- label
+
 
 application:addChild(GUI.panel(29, 29, 26, 5, 0x2D2D2D))
- 
+ --label
  
  
 --------------------------------------------------------------------------------
