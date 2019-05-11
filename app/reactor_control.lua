@@ -198,8 +198,8 @@ end
 --------------------------------------------------------------------------------
  
 application = GUI.application()
-application:addChild(GUI.panel(1, 1, 160, 1, 0x1F4582))
-application:addChild(GUI.text(14, 1, 0xFFFFFF, "REACTOR CONTROL"))
+application:addChild(GUI.panel(1, 2, 54, 1, 0x1F4582))
+application:addChild(GUI.text(17, 2, 0xFFFFFF, "REACTOR INFORMATION"))
 
 
 application:addChild(GUI.panel(1, 2, 54, 20, 0x2D2D2D))
@@ -263,22 +263,27 @@ OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
 --------------------------------------------------------------------------------
 -- control zone
 application:addChild(GUI.panel(1, 23, 26, 5, 0x2D2D2D))
-application:addChild(GUI.text(2, 24, 0x999999, "    REACTOR ENABLED     "))
+application:addChild(GUI.panel(1, 23, 26, 1, 0x1F4582))
+application:addChild(GUI.text(2, 23, 0x999999, "     REACTOR CONTROL    "))
 switchButton =application:addChild(GUI.switch(2, 25, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, component.invoke(ReactorAdresse, "getActive")))
 
 application:addChild(GUI.panel(29, 23, 26, 5, 0x2D2D2D))
-application:addChild(GUI.text(30, 24, 0x999999, "   REACTOR ROD LIMIT    "))
+application:addChild(GUI.panel(29, 23, 26, 1, 0x1F4582))
+application:addChild(GUI.text(30, 23, 0x999999, "   REACTOR ROD LIMIT    "))
 SliderLevelLimit = application:addChild(GUI.slider(30, 25, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, RodLevelLimit, false, ""))
 
 
 application:addChild(GUI.panel(1, 29, 26, 5, 0x2D2D2D))
-application:addChild(GUI.text(2, 30, 0x999999, " FUEL TEMPERATURE LIMIT "))
+application:addChild(GUI.panel(1, 29, 26, 1, 0x1F4582))
+application:addChild(GUI.text(2, 29, 0x999999, " FUEL TEMPERATURE LIMIT "))
 SliderTempLimit = application:addChild(GUI.slider(2, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, TempLimit, false, ""))
 
 
 application:addChild(GUI.panel(29, 29, 26, 5, 0x2D2D2D))
+application:addChild(GUI.panel(29, 29, 26, 1, 0x1F4582))
 if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
-    application:addChild(GUI.text(30, 30, 0x999999, "   STEAM TANK TRIGGER   "))
+    
+    application:addChild(GUI.text(30, 29, 0x999999, "   STEAM TANK TRIGGER   "))
     SliderSteamTrigger = application:addChild(GUI.slider(31, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, SteamTrigger, false, ""))
 else
     application:addChild(GUI.text(30, 30, 0x999999, "   POWER BANK TRIGGER   "))
