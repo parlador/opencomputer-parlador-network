@@ -13,6 +13,7 @@
   
 local GUI = require("GUI")
 component = require("component")
+local sides = require("sides")
 
 BankAdresse = ""
 ConduitAdresse = ""
