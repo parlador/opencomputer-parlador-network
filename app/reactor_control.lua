@@ -61,39 +61,39 @@ function UpdateGUI()
         table.insert(chartPowerOuput.values, {i, component.invoke(ReactorAdresse, "getEnergyProducedLastTick")})
     end
  
-    if tablelength(chartReact.values) > 51 then
+    if tablelength(chartReact.values) > 31 then
         table.remove(chartReact.values, 1)
-        table.insert(chartReact.values,1,{i-50, 0})
+        table.insert(chartReact.values,1,{i-30, 0})
         table.remove(chartReact.values, 2)
  
     end
-     if tablelength(chartRod.values) > 51 then
+     if tablelength(chartRod.values) > 31 then
         table.remove(chartRod.values, 1)
-        table.insert(chartRod.values,1,{i-50, 0})
+        table.insert(chartRod.values,1,{i-30, 0})
         table.remove(chartRod.values, 2)
  
     end
-    if tablelength(chartFuel.values) > 51 then
+    if tablelength(chartFuel.values) > 31 then
         table.remove(chartFuel.values, 1)
-        table.insert(chartFuel.values,1,{i-50, 0})
+        table.insert(chartFuel.values,1,{i-30, 0})
         table.remove(chartFuel.values, 2)
  
     end
-    if tablelength(chartPower.values) > 51 then
+    if tablelength(chartPower.values) > 31 then
         table.remove(chartPower.values, 1)
-        table.insert(chartPower.values,1,{i-50, 0})
+        table.insert(chartPower.values,1,{i-30, 0})
         table.remove(chartPower.values, 2)
        
     end
-    if tablelength(chartPowerOuput.values) > 51 then
+    if tablelength(chartPowerOuput.values) > 31 then
         table.remove(chartPowerOuput.values, 1)
-        table.insert(chartPowerOuput.values,1,{i-50, 0})
+        table.insert(chartPowerOuput.values,1,{i-30, 0})
         table.remove(chartPowerOuput.values, 2)
        
     end
-    if tablelength(chartTemperature.values) > 51 then
+    if tablelength(chartTemperature.values) > 31 then
         table.remove(chartTemperature.values, 1)
-        table.insert(chartTemperature.values,1,{i-50, 0})
+        table.insert(chartTemperature.values,1,{i-30, 0})
         table.remove(chartTemperature.values, 2)
  
     end
