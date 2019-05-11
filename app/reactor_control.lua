@@ -75,7 +75,7 @@ function UpdateGUI()
     end
     if tablelength(chartFuel.values) > 51 then
         table.remove(chartFuel.values, 1)
-        table.insert(chartFuel.values,1,{i-60, 0})
+        table.insert(chartFuel.values,1,{i-50, 0})
         table.remove(chartFuel.values, 2)
  
     end
