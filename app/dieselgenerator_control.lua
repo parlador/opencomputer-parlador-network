@@ -48,6 +48,21 @@ end
 
 function UpdateGUI()
   
+    table.insert(chartConduit.values, {i, GetPourcentageConduitSaturate()})
+    table.insert(chartBank.values, {i, GetPourcentageBankPower()})
+  
+    if tablelength(chartConduit.values) > 31 then
+        table.remove(chartConduit.values, 1)
+        table.insert(chartConduit.values,1,{i-30, 0})
+        table.remove(chartConduit.values, 2)
+ 
+    end
+     if tablelength(chartBank.values) > 31 then
+        table.remove(chartBank.values, 1)
+        table.insert(chartBank.values,1,{i-30, 0})
+        table.remove(chartBank.values, 2)
+ 
+    end
   
 end
 
