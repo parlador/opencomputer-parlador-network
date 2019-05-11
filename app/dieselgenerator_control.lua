@@ -24,6 +24,12 @@ for address, name in component.list("enderio_conduit_bundle", false) do
   ConduitAdresse = address
 end
 
+function tablelength(T)
+  local count = 0
+  for _ in pairs(T) do count = count + 1 end
+  return count
+end
+
 function round(num, idp)
   local mult = 10^(idp or 0)
   return math.floor(num * mult +0.5) / mult
@@ -36,8 +42,8 @@ function GetPourcentageBankPower()
 end
 
 function GetPourcentageConduitSaturate()
-    CurrentPower = component.invoke(ConduitAdresse, "pwr_getPowerInconduits")
-    MaxPower = component.invoke(ConduitAdresse, "pwr_getMaxPowerInconduits")
+    CurrentPower = component.invoke(ConduitAdresse, "pwr_getPowerInConduits")
+    MaxPower = component.invoke(ConduitAdresse, "pwr_getMaxPowerInConduits")
     return round((100 /MaxPower) * CurrentPower, 1)
 end
 
