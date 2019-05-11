@@ -41,6 +41,14 @@ function GetPourcentageConduitSaturate()
     return round((100 /MaxPower) * CurrentPower, 1)
 end
 
+function EnablingProduction()
+    component.redstone.setOutput(sides.right,0)
+end
+ 
+function DisablingProduction()
+    component.redstone.setOutput(sides.right,15)
+end
+
 function ProcessingGenerator()
     UpdateGUI()
     ControlGenerator()
@@ -67,7 +75,12 @@ function UpdateGUI()
 end
 
 function ControlGenerator()
-  
+    if GetPourcentageBankPower < 85 then
+        EnablingProduction()
+    end
+    if GetPourcentageBankPower  > 95 then
+            DisablingProduction()
+    end
   
 end
 
