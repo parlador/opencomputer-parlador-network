@@ -198,7 +198,7 @@ end
 --------------------------------------------------------------------------------
  
 application = GUI.application()
-application:addChild(GUI.panel(1, 1, 1, 160, 0x1F4582))
+application:addChild(GUI.panel(1, 1, 160, 1, 0x1F4582))
 application:addChild(GUI.text(14, 1, 0xFFFFFF, "REACTOR CONTROL"))
 
 
@@ -232,8 +232,7 @@ CurrentRodLevel = application:addChild(GUI.text(24, 7, 0x999999, "100"))
 application:addChild(GUI.text(2, 10, 0x999999, "Fuel Temperature:"))
 FuelTemp = application:addChild(GUI.text(24, 10, 0x999999, "0 C"))
  
-application:addChild(GUI.text(2, 11, 0x999999, "Fuel Temp. Limit:"))
-SliderTempLimit = application:addChild(GUI.slider(24, 11, 14, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, TempLimit, false, ""))
+
  
 application:addChild(GUI.text(2, 13, 0x999999, "Fuel Reactivite:"))
 FuelReactivite = application:addChild(GUI.text(24, 13, 0x999999, "0 %"))
@@ -249,13 +248,11 @@ WasteTank = application:addChild(GUI.progressBar(24, 16, 14, 0x7900E2, 0xEEEEEE,
  
 if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
     application:addChild(GUI.text(2, 17, 0x999999, "Steam Tank:"))
-    application:addChild(GUI.text(2, 18, 0x999999, "Steam Tank Trigger:"))
-    SliderSteamTrigger = application:addChild(GUI.slider(24, 18, 14, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, SteamTrigger, false, ""))
+
     application:addChild(GUI.text(2, 20, 0x999999, "Steam Produte Rate:"))
 else
     application:addChild(GUI.text(2, 17, 0x999999, "Power Bank:"))
-    application:addChild(GUI.text(2, 18, 0x999999, "Power Bank Trigger:"))
-    SliderPowerTrigger = application:addChild(GUI.slider(24, 18, 14, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, PowerTrigger, false, ""))
+
     application:addChild(GUI.text(2, 20, 0x999999, "Power Produte Rate:"))
  
 end
@@ -266,21 +263,27 @@ OutputRate = application:addChild(GUI.text(24, 20, 0x999999, "0 /T"))
 --------------------------------------------------------------------------------
 -- control zone
 application:addChild(GUI.panel(1, 23, 26, 5, 0x2D2D2D))
--- label
-switchButton =application:addChild(GUI.switch(2, 2, 24, 0x66DB80, 0x1D1D1D, 0xEEEEEE, component.invoke(ReactorAdresse, "getActive")))
+application:addChild(GUI.text(2, 24, 0x999999, "    REACTOR ENABLED     "))
+switchButton =application:addChild(GUI.switch(2, 25, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, component.invoke(ReactorAdresse, "getActive")))
 
 application:addChild(GUI.panel(29, 23, 26, 5, 0x2D2D2D))
-application:addChild(GUI.text(30, 24, 0x999999, "Reactor Rod Limit:"))
-SliderLevelLimit = application:addChild(GUI.slider(30, 26, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, RodLevelLimit, false, ""))
+application:addChild(GUI.text(30, 24, 0x999999, "   REACTOR ROD LIMIT    "))
+SliderLevelLimit = application:addChild(GUI.slider(30, 25, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, RodLevelLimit, false, ""))
 
 
 application:addChild(GUI.panel(1, 29, 26, 5, 0x2D2D2D))
--- label
+application:addChild(GUI.text(2, 30, 0x999999, " FUEL TEMPERATURE LIMIT "))
+SliderTempLimit = application:addChild(GUI.slider(2, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, TempLimit, false, ""))
 
 
 application:addChild(GUI.panel(29, 29, 26, 5, 0x2D2D2D))
- --label
- 
+if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
+    application:addChild(GUI.text(30, 30, 0x999999, "   STEAM TANK TRIGGER   "))
+    SliderSteamTrigger = application:addChild(GUI.slider(31, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, SteamTrigger, false, ""))
+else
+    application:addChild(GUI.text(30, 30, 0x999999, "   POWER BANK TRIGGER   "))
+    SliderPowerTrigger = application:addChild(GUI.slider(31, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, PowerTrigger, false, ""))
+end
  
 --------------------------------------------------------------------------------
 -- graph zone
