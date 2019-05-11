@@ -79,6 +79,9 @@ function UpdateGUI()
  
     end
   
+    i = i + 1
+    application:draw(true)
+  
 end
 
 function ControlGenerator()
