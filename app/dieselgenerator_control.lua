@@ -67,23 +67,23 @@ application = GUI.application()
 -- graph zone
 
  -- line1
-application:addChild(GUI.panel(49, 2, 30, 10, 0x2D2D2D))
-application:addChild(GUI.panel(49, 2, 30, 1, 0x1F4582))
---application:addChild(GUI.text(49, 2, 0xFFFFFF, "   FUEL TEMPERATURE       "))
-chartTemperature = application:addChild(GUI.chart(49, 3, 30, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
-application:addChild(GUI.panel(49, 12, 30, 1, 0x000000))
-application:addChild(GUI.text(49, 12, 0x000000, "                                                  "))
-table.insert(chartTemperature.values,1,{0, 0})
+application:addChild(GUI.panel(39, 2, 40, 10, 0x2D2D2D))
+application:addChild(GUI.panel(39, 2, 40, 1, 0x1F4582))
+--application:addChild(GUI.text(39, 2, 0xFFFFFF, "   FUEL TEMPERATURE       "))
+chartConduit = application:addChild(GUI.chart(39, 3, 40, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
+application:addChild(GUI.panel(39, 12, 40, 1, 0x000000))
+application:addChild(GUI.text(39, 12, 0x000000, "                                                  "))
+table.insert(chartConduit.values,1,{0, 0})
 
 
 --line 2
-application:addChild(GUI.panel(49, 13, 30, 10, 0x2D2D2D))
-application:addChild(GUI.panel(49, 13, 30, 1, 0x1F4582))
+application:addChild(GUI.panel(39, 15, 40, 10, 0x2D2D2D))
+application:addChild(GUI.panel(39, 15, 40, 1, 0x1F4582))
 --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
-chartReact = application:addChild(GUI.chart(49, 14, 30, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
-application:addChild(GUI.panel(49, 23, 30, 1, 0x000000))
-application:addChild(GUI.text(49, 23, 0x000000, "                                                  "))
-table.insert(chartReact.values,1,{0, 0})
+chartBank = application:addChild(GUI.chart(39, 16, 40, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
+application:addChild(GUI.panel(39, 25, 40, 1, 0x000000))
+application:addChild(GUI.text(39, 25, 0x000000, "                                                  "))
+table.insert(chartBank.values,1,{0, 0})
 
 
 application.eventHandler = function(application, object, eventname, ...)
