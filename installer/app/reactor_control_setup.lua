@@ -10,11 +10,11 @@ local internet = component.internet
 -- Specify required files for downloading
 local files = {
 	{
-		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/reactor_control.lua?token=ACKJDJ6BRHORA6IVZBFLLM24Z43FS",
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/reactor_control.lua",
 		path = "/app/reactor_control.lua"
 	},
 	{
-		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/lib/gui_setup.lua?token=ACKJDJ6TK5E3F66XHBN5SKK4Z43AK",
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/lib/gui_setup.lua",
 		path = "/tmp/setup/lib/gui_setup.lua"
 	},
 }
