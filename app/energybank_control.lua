@@ -6,8 +6,13 @@ component = require("component")
 
 
 BankAdresse = ""
+ConduitAdresse = ""
+
 for address, name in component.list("capbank", false) do
   BankAdresse = address
+end
+for address, name in component.list("enderio_conduit_bundle", false) do
+  ConduitAdresse = address
 end
 
 function tablelength(T)
@@ -24,6 +29,12 @@ end
 function GetPourcentageBankPower()
     CurrentPower = component.invoke(BankAdresse, "getCurrentStorage")
     MaxPower = component.invoke(BankAdresse, "getMaximumStorage")
+    return round((100 /MaxPower) * CurrentPower, 1)
+end
+
+function GetPourcentageConduitSaturate()
+    CurrentPower = component.invoke(ConduitAdresse, "pwr_getPowerInConduits")
+    MaxPower = component.invoke(ConduitAdresse, "pwr_getMaxPowerInConduits")
     return round((100 /MaxPower) * CurrentPower, 1)
 end
 
