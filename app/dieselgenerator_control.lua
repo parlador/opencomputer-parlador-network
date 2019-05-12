@@ -57,11 +57,11 @@ function DisablingProduction()
 end
 
 function DisableOutputBank()
-   component.invoke(BankAdresse, "setOuputControlMode","ON")
+   component.invoke(BankAdresse, "setOutputControlMode","ON")
 end
 
 function EnableOutputBank()
-   component.invoke(BankAdresse, "setOuputControlMode","IGNORE")
+   component.invoke(BankAdresse, "setOutputControlMode","IGNORE")
 end
 
 function ProcessingGenerator()
