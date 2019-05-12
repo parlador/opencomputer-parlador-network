@@ -11,7 +11,7 @@ local internet = component.internet
 -- Specify required files for downloading
 local files = {
 	{
-		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/reactor_control.lua",
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/energybank_control.lua",
 		path = "/app/energybank_control.lua"
 	},
 	{
