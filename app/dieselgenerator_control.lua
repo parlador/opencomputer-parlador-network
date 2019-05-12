@@ -56,6 +56,14 @@ function DisablingProduction()
     component.redstone.setOutput(sides.right,15)
 end
 
+function DisableOutputBank()
+   component.invoke(BankAdresse, "setOuputControlMode","ON")
+end
+
+function EnableOutputBank()
+   component.invoke(BankAdresse, "setOuputControlMode","IGNORE")
+end
+
 function ProcessingGenerator()
     UpdateGUI()
     ControlGenerator()
@@ -91,7 +99,11 @@ function ControlGenerator()
     if GetPourcentageBankPower()  > 95 then
             DisablingProduction()
     end
-  
+    if GetPourcentageConduitSaturate() < 85 then
+      EnableOutputBank()
+    else 
+      DisableOutputBank()
+    end
 end
 
 
