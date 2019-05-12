@@ -8,7 +8,7 @@
 --enderio normal bank (activated_capbank)
 --getCurrentStorage
 --getMaximumStorage
---setOuputControlMode (IGNORE/""ON")
+--setOutputControlMode (IGNORE/""ON")
 
   
 local GUI = require("GUI")
