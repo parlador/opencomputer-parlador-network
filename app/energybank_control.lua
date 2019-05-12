@@ -109,7 +109,7 @@ application.eventHandler = function(application, object, eventname, ...)
     elseif     eventname == "drop" then
     elseif     eventname == "key_down" then
     elseif     eventname == "key_up" then
-    elseif     eventname == nil then ProcessingGenerator()
+    elseif     eventname == nil then ProcessingBank()
     else                
         GUI.alert(eventname)
     end
