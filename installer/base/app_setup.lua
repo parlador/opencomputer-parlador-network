@@ -19,7 +19,7 @@ local files = {
 		path = "/tmp/setup/app/dieselgenerator_control_setup.lua"
 	},
 	{
-		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/app/dieselgenerator_control_setup.lua",
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/app/energybank_control_setup.lua",
 		path = "/tmp/setup/app/energybank_control_setup.lua"
 	},
 }
