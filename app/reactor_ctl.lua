@@ -6,7 +6,7 @@ Reactorlist = {}
  
 for address, name in component.list("bigreactor", false) do
   print(name.." : "..address)
-  Reactorlist[address]{"addr"=address}
+  Reactorlist[address]={"addr"=address}
 end
 
 
