@@ -4,7 +4,7 @@ local screen = component.screen
 if screen.isPrecise() then
   local screenblockW, screenblockH = screen.getAspectRatio()
   if screenblockW == 2 and screenblockH == 1 then
-    os.execute("resolution 160 35
+    os.execute("resolution 160 35")
   end 
 end
   
