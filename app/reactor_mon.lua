@@ -1,3 +1,5 @@
+local GUI = require("GUI")
+
 function UpdateGUI()
     table.insert(chartFuel.values, {i, GetPourcentageFuel()})
    
