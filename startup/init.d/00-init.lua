@@ -25,6 +25,10 @@ local files = {
 		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/startup/init.d/00-init.lua",
 		path = "/home/.init.d/00-init.lua"
 	},
+	{
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/startup/init.d/01-screen.lua",
+		path = "/home/.init.d/01-screen.lua"
+	},
 }
 
 local properties = {
