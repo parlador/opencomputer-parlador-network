@@ -14,6 +14,14 @@ local files = {
 		path = "/app/reactor_control.lua"
 	},
 	{
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/reactor_ctl.lua",
+		path = "/app/reactor_ctl.lua"
+	},
+	{
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/reactor_mon.lua",
+		path = "/app/reactor_mon.lua"
+	},
+	{
 		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/lib/gui_setup.lua",
 		path = "/tmp/setup/lib/gui_setup.lua"
 	},
