@@ -4,6 +4,19 @@ Reactorlist = {}
  
 --------------------------------------------------------------------------------
 
+function tablelength(T)
+  local count = 0
+  for _ in pairs(T) do count = count + 1 end
+  return count
+end
+ 
+function round(num, idp)
+  local mult = 10^(idp or 0)
+  return math.floor(num * mult +0.5) / mult
+end
+
+--------------------------------------------------------------------------------
+
 function GetPourcentagePower(ReactorAdresse)
     CurrentPower = component.invoke(ReactorAdresse, "getEnergyStored")
     MaxPower = 10000000
@@ -56,6 +69,8 @@ function PollReactors()
       end
   return tmpReactorList
 end
+
+--------------------------------------------------------------------------------
 
 Reactorlist = PollReactors()
 
