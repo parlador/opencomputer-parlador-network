@@ -90,6 +90,6 @@ end
 Reactorlist = PollReactors()
 
 
-for i,line in ipairs(Reactorlist) do
+for i,line in pairs(Reactorlist) do
     print(line["Address"])
 end
