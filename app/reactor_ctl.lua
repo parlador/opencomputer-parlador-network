@@ -78,7 +78,6 @@ function PollReactors()
       tmpReactorList  = {}
       idreactor = 1
       for address, name in component.list("bigreactor", false) do
-        print(name.." : "..address)
         tmpReactorList[address]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=true,RodLevelLimit=100,RodLevel=100,TempLimit=970,PowerTrigger=95,SteamTrigger=95,ReactorEnable=GetReactorActiver(address)}
         idreactor = 1
       end
