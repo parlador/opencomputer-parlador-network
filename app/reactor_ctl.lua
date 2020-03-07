@@ -40,7 +40,6 @@ end
 function GetActivelyCooled(ReactorAdresse)
     return component.invoke(ReactorAdresse, "isActivelyCooled")
 end
-
 function GetCasingTemperature(ReactorAdresse)
     return component.invoke(ReactorAdresse, "getCasingTemperature")
 end
@@ -57,6 +56,22 @@ function GetReactorActiver(ReactorAdresse)
     return component.invoke(ReactorAdresse, "getActive")
 end 
 
+function GetSteamTrigger(ReactorAdresse)
+    Reactorlist[]
+end
+function GetPowerTrigger(ReactorAdresse)
+ 
+end
+function GetTempLimit(ReactorAdresse)
+ 
+end
+function GetRodLevel(ReactorAdresse)
+ 
+end
+function GetRodLevelLimit(ReactorAdresse)
+ 
+end
+
 --------------------------------------------------------------------------------
 
 function PollReactors()
@@ -64,7 +79,7 @@ function PollReactors()
       idreactor = 1
       for address, name in component.list("bigreactor", false) do
         print(name.." : "..address)
-        tmpReactorList[idreactor]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=true,RodLevelLimit=100,RodLevel=100,TempLimit=970,PowerTrigger=95,SteamTrigger=95,ReactorEnable=GetReactorActiver(address)}
+        tmpReactorList[address]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=true,RodLevelLimit=100,RodLevel=100,TempLimit=970,PowerTrigger=95,SteamTrigger=95,ReactorEnable=GetReactorActiver(address)}
         idreactor = 1
       end
   return tmpReactorList
