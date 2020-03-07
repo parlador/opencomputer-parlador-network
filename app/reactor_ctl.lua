@@ -24,7 +24,11 @@ function GetPourcentageHotFuel(ReactorAdresse)
     MaxHotFluid = component.invoke(ReactorAdresse, "getHotFluidAmountMax")
     return round((100 /MaxHotFluid) * CurrentHotFuel, 1)
 end
- 
+function GetActivelyCooled(ReactorAdresse)
+    return component.invoke(ReactorAdresse, "isActivelyCooled")
+end
+
+
 --------------------------------------------------------------------------------
 
 function PollReactors()
@@ -32,7 +36,7 @@ function PollReactors()
       idreactor = 1
       for address, name in component.list("bigreactor", false) do
         print(name.." : "..address)
-        tmpReactorList[idreactor]={"Address"=address,"PourcentageHotFuel"=GetPourcentageHotFuel(address),"PourcentageWaste"=GetPourcentageWaste(address)."PourcentageFuel"=GetPourcentageFuel(address),"PourcentagePower"=GetPourcentagePower(address)}
+        tmpReactorList[idreactor]={"Address"=address,"PourcentageHotFuel"=GetPourcentageHotFuel(address),"PourcentageWaste"=GetPourcentageWaste(address),"PourcentageFuel"=GetPourcentageFuel(address),"PourcentagePower"=GetPourcentagePower(address),"ActivelyCooled"=GetActivelyCooled(address)}
         idreactor += 1
       end
   return tmpReactorList
@@ -42,5 +46,5 @@ Reactorlist = PollReactors()
 
 
 for i,line in ipairs(Reactorlist) do
-    print(line["addr"])
+    print(line["Address"])
 end
