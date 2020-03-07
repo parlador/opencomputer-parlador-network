@@ -49,7 +49,7 @@ function PollReactors()
       idreactor = 1
       for address, name in component.list("bigreactor", false) do
         print(name.." : "..address)
-        tmpReactorList[idreactor]={"Address"=address,"PourcentageHotFuel"=GetPourcentageHotFuel(address),"PourcentageWaste"=GetPourcentageWaste(address),"PourcentageFuel"=GetPourcentageFuel(address),"PourcentagePower"=GetPourcentagePower(address),"ActivelyCooled"=GetActivelyCooled(address),"CasingTemperature"=GetCasingTemperature(address),"FuelTemperature"=GetFuelTemperature(address),"FuelReactivity"=GetFuelReactivity(address),"FuelConsumedLastTick"=GetFuelConsumedLastTick(address)}
+        tmpReactorList[idreactor]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address)}
         idreactor += 1
       end
   return tmpReactorList
