@@ -2,6 +2,7 @@ local gui = require("GUI")
 component = require("component")
 filesystem = require("filesystem")
 io = require("io")
+os = require("os")
 serialization = require("serialization")
 term = require("term")
 modem = component.modem
@@ -199,3 +200,4 @@ Reactorlist = PollReactors()
 for i,line in pairs(Reactorlist) do
     print(line["Address"])
 end
+os.exit()
