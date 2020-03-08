@@ -233,7 +233,6 @@ application.eventHandler = function(application, object, eventname, ...)
     else                
         gui.alert(eventname)
     end
-   
 end
  
 --------------------------------------------------------------------------------
