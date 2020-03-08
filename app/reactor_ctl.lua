@@ -63,7 +63,7 @@ end
 function GlobalInitCfg()
  term.clear()
  print(" - - - - - - - - - - - - - - - - - ")
- print("REACTOR CONTROL SETUP")
+ print("REACTOR CONTROL GLOBAL SETUP")
  print(" - - - - - - - - - - - - - - - - - ")
  print()
  print("Set the Group Name: ")
@@ -72,21 +72,32 @@ function GlobalInitCfg()
  return {name=GroupName}
 end
 
-
-function ReactorLoadCfg(ReactorAdresse)
- 
+function ReactorLoadCfg(repo,ReactorAdresse)
+ return LoadCfg(repo,ReactorAdresse)
 end
 
-function ReactorSaveCfg(ReactorAdresse)
- 
+function ReactorSaveCfg(repo,ReactorAdresse,config)
+  return SaveCfg(repo,ReactorAdresse,config)
 end
 
-function ReactorInitCfg(ReactorAdresse)
- 
+function ReactorInitCfg(repo,ReactorAdresse)
+ term.clear()
+ print(" - - - - - - - - - - - - - - - - - ")
+ print("REACTOR "..ReactorAdresse.." SETUP")
+ print(" - - - - - - - - - - - - - - - - - ")
+ print()
+ print("Set the Reactor Name: ")
+ ReactorName = io.read()
+  
+ return {name=ReactorName,SteamTrigger=95,GetPowerTrigger=95,GetTempLimit=970,GetRodLevel=100,GetRodLevelLimit=100}
 end
 
-function ReactorExistCfg(ReactorAdresse)
- 
+function AllReactorInit(repo)
+  for address, name in component.list("bigreactor", false) do
+    if ExistCfg(repo,address) == false then
+      ReactorSaveCfg(repo,address,ReactorInitCfg(repo,address))
+    end
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -181,6 +192,7 @@ end
 --------------------------------------------------------------------------------
 
 GlobalConfig = GlobalLoadCfg(RepoCfg)
+AllReactorInit(RepoCfg)
 Reactorlist = PollReactors()
 
 
