@@ -3,7 +3,7 @@ component = require("component")
 filesystem = require("filesystem")
 io = require("io")
 serialization = require("serialization")
-modem = component.modem
+--modem = component.modem
 
 Reactorlist = {}
 RepoCfg = "/etc/Reactor/"
