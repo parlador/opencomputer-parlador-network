@@ -194,7 +194,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function PollReactors()
+function PollReactors(repo)
       tmpReactorList  = {}
       idreactor = 1
       for address, name in component.list("bigreactor", false) do
@@ -208,7 +208,7 @@ end
 
 GlobalConfig = GlobalLoadCfg(RepoCfg)
 AllReactorInit(RepoCfg)
-Reactorlist = PollReactors()
+Reactorlist = PollReactors(RepoCfg)
 
 
 for i,line in pairs(Reactorlist) do
