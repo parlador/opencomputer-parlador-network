@@ -29,13 +29,13 @@ function CreateRepoCfg(repo)
 end
 
 function SaveCfg(repo,file,table)
-  file = filesystem.open(repo..file..".cfg","w")
+  file = io.open(repo..file..".cfg","w")
   file.write(serialization.serialize(table))
   file.close()
 end
 
 function LoadCfg(repo,file)
-  file = filesystem.open(repo..file..".cfg","r")
+  file = io.open(repo..file..".cfg","r")
   configtbl = serialization.unserialize(file.open("*a"))
   file.close()
    return
