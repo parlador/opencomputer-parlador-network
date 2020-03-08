@@ -3,6 +3,7 @@ component = require("component")
 filesystem = require("filesystem")
 io = require("io")
 serialization = require("serialization")
+term = require("term")
 modem = component.modem
 
 Reactorlist = {}
@@ -36,7 +37,7 @@ end
 
 function LoadCfg(repo,file)
   file = io.open(repo..file..".cfg","r")
-  configtbl = serialization.unserialize(file:open("*a"))
+  configtbl = serialization.unserialize(file:read("*a"))
   file:close()
    return
 end
@@ -60,8 +61,14 @@ function GlobalSaveCfg(repo,config)
 end
 
 function GlobalInitCfg()
+ term.clear()
+ term.write("- - - - - - - - - - - - - - - - - - - ")
+ term.write("REACTOR CONTROL SETUP")
+ term.write("- - - - - - - - - - - - - - - - - - - ")
+ term.write("")
+ term.write("Set the Group Name: ")
  GroupName = io.read()
- --GroupName = "test"
+
  return {name=GroupName}
 end
 
