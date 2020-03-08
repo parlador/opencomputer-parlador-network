@@ -3,6 +3,7 @@ local component = require("component")
 local filesystem = require("filesystem")
 local io = require("io")
 local serialization = require("serialization")
+local modem = require("modem")
 
 Reactorlist = {}
 RepoCfg = "/etc/Reactor/"
