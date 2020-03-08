@@ -236,7 +236,7 @@ application.eventHandler = function(application, object, eventname, ...)
     elseif     eventname == "key_up" then
     elseif     eventname == nil then ProcessingReactor()
     else                
-        GUI.alert(eventname)
+        gui.alert(eventname)
     end
    
 end
