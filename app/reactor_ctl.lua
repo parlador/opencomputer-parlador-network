@@ -22,53 +22,55 @@ end
 function CreateRepoCfg()
    return filesystem.makeDirectory(RepoCfg)
 end
+
 function SaveCfg(repo,file,table)
   file = io.open(repo..file..".cfg","w")
   file.write(serialization.serialize(table))
   file.close()
 end
-function LoadCfg(repofile)
+
+function LoadCfg(repo,file)
   file = io.open(repo..file..".cfg","r")
   configtbl = serialization.unserialize(file.open("*a"))
   file.close()
    return
 end
+
 function ExistCfg(repo,file)
    return filesystem.exists(RepoCfg..file..".cfg")
 end
  
-end
-function GlobalLoadCfg()
+
+
+function GlobalLoadCfg(repo)
    if ExistCfg("global") == false then
-    GlobalInitCfg()
+    GlobalSaveCfg(repo,GlobalInitCfg())
    end
-   return LoadCfg("global)
+   return LoadCfg(repo,"global")
 end
-function GlobalSaveCfg(Config)
- 
- if ExistCfg("global") == false then
-    GlobalInitCfg()
- else
-  
- end
+
+function GlobalSaveCfg(repo,config)
+    return SaveCfg(repo,"global",config)
 end
-function GlobalInitCfg(table)
+
+function GlobalInitCfg()
  GroupName = term.read()
-    
+ return {name=GroupName}
 end
-function GlobalExistCfg()
- 
-end
+
 
 function ReactorLoadCfg(ReactorAdresse)
  
 end
+
 function ReactorSaveCfg(ReactorAdresse)
  
 end
+
 function ReactorInitCfg(ReactorAdresse)
  
 end
+
 function ReactorExistCfg(ReactorAdresse)
  
 end
