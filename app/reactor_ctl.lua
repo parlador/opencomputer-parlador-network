@@ -229,8 +229,8 @@ application = gui.application()
 GuiReactorSectionStart = 1
 for i,line in pairs(Reactorlist) do
   
-  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 53, 20, 0x2D2D2D))
-  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 53, GuiReactorSectionStart, 0x1F4582))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 17, 100, 0x2D2D2D))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 17, GuiReactorSectionStart, 0x1F4582))
   application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR INFORMATION"))
   
   GuiReactorSectionStart = GuiReactorSectionStart + 53
