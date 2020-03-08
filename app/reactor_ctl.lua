@@ -223,7 +223,7 @@ end
 
 --------------------------------------------------------------------------------
 
-application = GUI.application()
+application = gui.application()
 
 
 
