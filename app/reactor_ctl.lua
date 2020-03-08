@@ -1,7 +1,10 @@
 local GUI = require("GUI")
 component = require("component")
 Reactorlist = {}
- 
+RepoCfg = "/etc/Reactor/"
+defaultGlobalConfig = {}
+GlobalConfig = {}
+
 --------------------------------------------------------------------------------
 
 function tablelength(T)
@@ -13,6 +16,51 @@ end
 function round(num, idp)
   local mult = 10^(idp or 0)
   return math.floor(num * mult +0.5) / mult
+end
+
+--------------------------------------------------------------------------------
+
+function CreateRepoCfg()
+   return filesystem.makeDirectory(RepoCfg)
+end
+function SaveCfg(repo,file,table)
+ 
+end
+function LoadCfg(repofile)
+
+   return
+end
+function ExistCfg(repo,file)
+   return filesystem.exists(RepoCfg.."file..".cfg")
+end
+ 
+end
+function GlobalSaveCfg(Config)
+ 
+ if ExistCfg("global") == false then
+    GlobalInitCfg(Config)
+ else
+  
+ end
+end
+function GlobalInitCfg(table)
+ 
+end
+function GlobalExistCfg()
+ 
+end
+
+function ReactorLoadCfg(ReactorAdresse)
+ 
+end
+function ReactorSaveCfg(ReactorAdresse)
+ 
+end
+function ReactorInitCfg(ReactorAdresse)
+ 
+end
+function ReactorExistCfg(ReactorAdresse)
+ 
 end
 
 --------------------------------------------------------------------------------
