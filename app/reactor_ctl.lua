@@ -292,10 +292,10 @@ for i,Reactor in pairs(Reactorlist) do
   
   
   -- control zone
-  application:addChild(gui.panel(74, 23, 99, 5, 0x2D2D2D))
-  application:addChild(gui.panel(74, 23, 99, 1, 0x1F4582))
-  application:addChild(gui.text(75, 23, 0x999999, "     REACTOR CONTROL    "))
-  ReactorLabel[Reactor["Address"]]={switchButton=application:addChild(gui.switch(75, 25, 97, 0x66DB66, 0xDB6666, 0xEEEEEE, Reactor["ReactorEnable"]))}
+  application:addChild(gui.panel(133, GuiReactorSectionStart+3, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(74, GuiReactorSectionStart+3, 26, 1, 0x1F4582))
+  application:addChild(gui.text(75, GuiReactorSectionStart+3, 0x999999, "     REACTOR CONTROL    "))
+  ReactorLabel[Reactor["Address"]]={switchButton=application:addChild(gui.switch(75, GuiReactorSectionStart+5, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, Reactor["ReactorEnable"]))}
 
   application:addChild(gui.panel(29, 23, 26, 5, 0x2D2D2D))
   application:addChild(gui.panel(29, 23, 26, 1, 0x1F4582))
@@ -303,10 +303,10 @@ for i,Reactor in pairs(Reactorlist) do
   ReactorLabel[Reactor["Address"]]={SliderLevelLimit=application:addChild(gui.slider(30, 25, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, Reactor["RodLevelLimit"], false, ""))}
 
 
-  application:addChild(gui.panel(74, 29, 99, 5, 0x2D2D2D))
-  application:addChild(gui.panel(74, 29, 99, 1, 0x1F4582))
+  application:addChild(gui.panel(133, 29, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(133, 29, 26, 1, 0x1F4582))
   application:addChild(gui.text(75, 29, 0x999999, " FUEL TEMPERATURE LIMIT "))
-  ReactorLabel[Reactor["Address"]]={SliderTempLimit=application:addChild(gui.slider(75, 31, 97, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, Reactor["TempLimit"], false, ""))}
+  ReactorLabel[Reactor["Address"]]={SliderTempLimit=application:addChild(gui.slider(75, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, Reactor["TempLimit"], false, ""))}
 
 
   application:addChild(gui.panel(29, 29, 26, 5, 0x2D2D2D))
