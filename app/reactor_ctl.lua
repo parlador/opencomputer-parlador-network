@@ -7,6 +7,7 @@ serialization = require("serialization")
 term = require("term")
 modem = component.modem
 
+ReactorLabel = {}
 Reactorlist = {}
 RepoCfg = "/etc/Reactor/"
 
@@ -225,13 +226,14 @@ end
 
 application = gui.application()
 
-ReactorLabel = {}
+
 GuiReactorSectionStart = 1
 for i,Reactor in pairs(Reactorlist) do
   
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, 17, 0x2D2D2D))
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, GuiReactorSectionStart, 0x1F4582))
   ReactorLabel[Reactor["Address"]]={Name=application:addChild(gui.text(3, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"]))}
+  
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
 end
