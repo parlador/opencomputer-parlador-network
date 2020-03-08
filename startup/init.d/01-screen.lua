@@ -2,6 +2,13 @@ local component = require("component")
 local gpu = component.gpu
 local screen = component.screen
 
+local MaxW, MaxH = gpu.maxResolution()
+
+  if MaxW ~= 160 or MaxH ~= 50 then
+    print("Wrong Resolution, gpu tier3 or screen tier3 not detected, rebooting and retry detect hw")
+    os.execute("reboot")
+  end
+
   local screenblockW, screenblockH = screen.getAspectRatio()
 
   if screenblockW == 2 and screenblockH == 1 then
