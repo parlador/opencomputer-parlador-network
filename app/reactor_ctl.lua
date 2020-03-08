@@ -34,7 +34,7 @@ function LoadCfg(repofile)
    return
 end
 function ExistCfg(repo,file)
-   return filesystem.exists(RepoCfg.."file..".cfg")
+   return filesystem.exists(RepoCfg..file..".cfg")
 end
  
 end
