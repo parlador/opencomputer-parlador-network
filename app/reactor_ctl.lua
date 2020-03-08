@@ -226,10 +226,15 @@ end
 application = gui.application()
 
 
-application:addChild(gui.panel(1, 2, 54, 20, 0x2D2D2D))
-application:addChild(gui.panel(1, 2, 54, 1, 0x1F4582))
-application:addChild(gui.text(17, 2, 0xFFFFFF, "REACTOR INFORMATION"))
-
+GuiReactorSectionStart = 1
+for i,line in pairs(Reactorlist) do
+  
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 53, 20, 0x2D2D2D))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 53, GuiReactorSectionStart, 0x1F4582))
+  application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR INFORMATION"))
+  
+  GuiReactorSectionStart = GuiReactorSectionStart + 53
+end
 
 application.eventHandler = function(application, object, eventname, ...)
     if eventname == "touch" or eventname == "GUI" or eventname == "drag" or eventname == "drop" or eventname == "key_down" or eventname == "key_up" or eventname == nil then
