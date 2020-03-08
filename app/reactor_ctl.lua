@@ -206,6 +206,12 @@ end
 
 --------------------------------------------------------------------------------
 
+function ProcessingReactor(repo)
+  
+end
+
+--------------------------------------------------------------------------------
+
 GlobalConfig = GlobalLoadCfg(RepoCfg)
 AllReactorInit(RepoCfg)
 Reactorlist = PollReactors(RepoCfg)
@@ -214,4 +220,25 @@ Reactorlist = PollReactors(RepoCfg)
 for i,line in pairs(Reactorlist) do
     print(line["Address"])
 end
-os.exit()
+
+--------------------------------------------------------------------------------
+
+application.eventHandler = function(application, object, eventname, ...)
+    if     eventname == "touch" then
+    elseif     eventname == "GUI" then
+    elseif     eventname == "drag" then
+    elseif     eventname == "drop" then
+    elseif     eventname == "key_down" then
+    elseif     eventname == "key_up" then
+    elseif     eventname == nil then ProcessingReactor()
+    else                
+        GUI.alert(eventname)
+    end
+   
+end
+ 
+--------------------------------------------------------------------------------
+
+
+application:draw(true)
+application:start(1)
