@@ -59,7 +59,7 @@ function GlobalSaveCfg(repo,config)
 end
 
 function GlobalInitCfg()
- GroupName = term.read()
+ GroupName = io.read()
  return {name=GroupName}
 end
 
