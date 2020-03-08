@@ -228,13 +228,7 @@ application = GUI.application()
 
 
 application.eventHandler = function(application, object, eventname, ...)
-    if     eventname == "touch" then
-    elseif     eventname == "GUI" then
-    elseif     eventname == "drag" then
-    elseif     eventname == "drop" then
-    elseif     eventname == "key_down" then
-    elseif     eventname == "key_up" then
-    elseif     eventname == nil then 
+    if eventname == "touch" or eventname == "GUI" or eventname == "drag" or eventname == "drop" or eventname == "key_down" or eventname == "key_up" or eventname == nil then 
         ProcessingReactor()
     else                
         gui.alert(eventname)
