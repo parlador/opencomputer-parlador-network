@@ -62,9 +62,9 @@ end
 
 function GlobalInitCfg()
  term.clear()
- print( - - - - - - - - - - - - - - - - - )
+ print(" - - - - - - - - - - - - - - - - - ")
  print("REACTOR CONTROL SETUP")
- print( - - - - - - - - - - - - - - - - - )
+ print(" - - - - - - - - - - - - - - - - - ")
  print()
  print("Set the Group Name: ")
  GroupName = io.read()
