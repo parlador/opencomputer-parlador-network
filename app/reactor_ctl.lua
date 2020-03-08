@@ -90,7 +90,7 @@ function ReactorInitCfg(repo,ReactorAdresse)
  print("Set the Reactor Name: ")
  ReactorName = io.read()
   
- return {name=ReactorName,SteamTrigger=95,GetPowerTrigger=95,GetTempLimit=970,GetRodLevel=100,GetRodLevelLimit=100}
+ return {name=ReactorName,SteamTrigger=95,PowerTrigger=95,TempLimit=970,RodLevel=100,RodLevelLimit=100,MasterSwitch=true}
 end
 
 function AllReactorInit(repo)
@@ -142,39 +142,53 @@ function GetReactorActiver(ReactorAdresse)
     return component.invoke(ReactorAdresse, "getActive")
 end 
 
-function GetSteamTrigger(ReactorAdresse)
-    if Reactorlist[ReactorAdresse] then
+function GetSteamTrigger(ReactorAdresse,repo)
+    if Reactorlist["ReactorAdresse"] then
        return Reactorlist[ReactorAdresse]["SteamTrigger"]
     else
-       return 95
+       return ReactorLoadCfg(repo,ReactorAdresse)["SteamTrigger"]
     end
 end
-function GetPowerTrigger(ReactorAdresse)
-    if Reactorlist[ReactorAdresse] then
+function GetPowerTrigger(ReactorAdresse,repo)
+    if Reactorlist["ReactorAdresse"] then
        return Reactorlist[ReactorAdresse]["PowerTrigger"]
     else
-       return 95
+       return ReactorLoadCfg(repo,ReactorAdresse)["PowerTrigger"]
     end
 end
-function GetTempLimit(ReactorAdresse)
-    if Reactorlist[ReactorAdresse] then
+function GetTempLimit(ReactorAdresse,repo)
+    if Reactorlist["ReactorAdresse"] then
        return Reactorlist[ReactorAdresse]["TempLimit"]
     else
-       return 975
+       return ReactorLoadCfg(repo,ReactorAdresse)["TempLimit"]
     end
 end
-function GetRodLevel(ReactorAdresse)
-    if Reactorlist[ReactorAdresse] then
+function GetRodLevel(ReactorAdresse,repo)
+    if Reactorlist["ReactorAdresse"] then
        return Reactorlist[ReactorAdresse]["RodLevel"]
     else
-       return 100
+       return ReactorLoadCfg(repo,ReactorAdresse)["RodLevel"]
     end
 end
-function GetRodLevelLimit(ReactorAdresse)
-    if Reactorlist[ReactorAdresse] then
+function GetRodLevelLimit(ReactorAdresse,repo)
+    if Reactorlist["ReactorAdresse"] then
        return Reactorlist[ReactorAdresse]["RodLevelLimit"]
     else
-       return 100
+       return ReactorLoadCfg(repo,ReactorAdresse)["RodLevelLimit"]
+    end
+end
+function GetReactorName(ReactorAdresse,repo)
+    if Reactorlist["GetReactorName"] then
+       return Reactorlist[ReactorAdresse]["GetReactorName"]
+    else
+       return ReactorLoadCfg(repo,ReactorAdresse)["GetReactorName"]
+    end
+end
+function GetMasterSwitch(ReactorAdresse,repo)
+    if Reactorlist["MasterSwitch"] then
+       return Reactorlist[ReactorAdresse]["MasterSwitch"]
+    else
+       return ReactorLoadCfg(repo,ReactorAdresse)["MasterSwitch"]
     end
 end
 
@@ -184,7 +198,7 @@ function PollReactors()
       tmpReactorList  = {}
       idreactor = 1
       for address, name in component.list("bigreactor", false) do
-        tmpReactorList[address]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=true,RodLevelLimit=GetRodLevelLimit(),RodLevel=GetRodLevel(address),TempLimit=GetTempLimit(address),PowerTrigger=GetPowerTrigger(address),SteamTrigger=GetSteamTrigger(address),ReactorEnable=GetReactorActiver(address)}
+        tmpReactorList[address]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=GetMasterSwitch(address,repo),RodLevelLimit=GetRodLevelLimit(address,repo),RodLevel=GetRodLevel(address,repo),TempLimit=GetTempLimit(address,repo),PowerTrigger=GetPowerTrigger(address,repo),SteamTrigger=GetSteamTrigger(address,repo),ReactorEnable=GetReactorActiver(address),name=GetReactorName(address,repo)}
         idreactor = idreactor + 1
       end
   return tmpReactorList
