@@ -233,7 +233,7 @@ for i,line in pairs(Reactorlist) do
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 17, GuiReactorSectionStart, 0x1F4582))
   application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR INFORMATION"))
   
-  GuiReactorSectionStart = GuiReactorSectionStart + 53
+  GuiReactorSectionStart = GuiReactorSectionStart + 17
 end
 
 application.eventHandler = function(application, object, eventname, ...)
