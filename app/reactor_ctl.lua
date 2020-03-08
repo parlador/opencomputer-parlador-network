@@ -2,8 +2,7 @@ local GUI = require("GUI")
 component = require("component")
 Reactorlist = {}
 RepoCfg = "/etc/Reactor/"
-defaultGlobalConfig = {}
-GlobalConfig = {}
+
 
 --------------------------------------------------------------------------------
 
@@ -24,10 +23,14 @@ function CreateRepoCfg()
    return filesystem.makeDirectory(RepoCfg)
 end
 function SaveCfg(repo,file,table)
- 
+  file = io.open(repo..file..".cfg","w")
+  file.write(serialization.serialize(table))
+  file.close()
 end
 function LoadCfg(repofile)
-
+  file = io.open(repo..file..".cfg","r")
+  configtbl = serialization.unserialize(file.open("*a"))
+  file.close()
    return
 end
 function ExistCfg(repo,file)
@@ -35,16 +38,23 @@ function ExistCfg(repo,file)
 end
  
 end
+function GlobalLoadCfg()
+   if ExistCfg("global") == false then
+    GlobalInitCfg()
+   end
+   return LoadCfg("global)
+end
 function GlobalSaveCfg(Config)
  
  if ExistCfg("global") == false then
-    GlobalInitCfg(Config)
+    GlobalInitCfg()
  else
   
  end
 end
 function GlobalInitCfg(table)
- 
+ GroupName = term.read()
+    
 end
 function GlobalExistCfg()
  
@@ -154,6 +164,7 @@ end
 
 --------------------------------------------------------------------------------
 
+GlobalConfig = GlobalLoadCfg()
 Reactorlist = PollReactors()
 
 
