@@ -171,7 +171,7 @@ end
 
 --------------------------------------------------------------------------------
 
-GlobalConfig = GlobalLoadCfg()
+GlobalConfig = GlobalLoadCfg(RepoCfg)
 Reactorlist = PollReactors()
 
 
