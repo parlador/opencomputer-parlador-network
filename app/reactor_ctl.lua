@@ -292,31 +292,31 @@ for i,Reactor in pairs(Reactorlist) do
   
   
   -- control zone
-  application:addChild(gui.panel(133, GuiReactorSectionStart+3, 26, 5, 0x2D2D2D))
-  application:addChild(gui.panel(133, GuiReactorSectionStart+3, 26, 1, 0x1F4582))
-  application:addChild(gui.text(134, GuiReactorSectionStart+3, 0x999999, "     REACTOR CONTROL    "))
-  ReactorLabel[Reactor["Address"]]={switchButton=application:addChild(gui.switch(134, GuiReactorSectionStart+5, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, Reactor["ReactorEnable"]))}
+  application:addChild(gui.panel(134, GuiReactorSectionStart+2, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(134, GuiReactorSectionStart+2, 26, 1, 0x1F826B))
+  application:addChild(gui.text(135, GuiReactorSectionStart+2, 0x999999, "     REACTOR CONTROL    "))
+  ReactorLabel[Reactor["Address"]]={switchButton=application:addChild(gui.switch(135, GuiReactorSectionStart+3, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, Reactor["ReactorEnable"]))}
 
-  application:addChild(gui.panel(133, GuiReactorSectionStart+6, 26, 5, 0x2D2D2D))
-  application:addChild(gui.panel(133, GuiReactorSectionStart+6, 26, 1, 0x1F4582))
-  application:addChild(gui.text(134, GuiReactorSectionStart+6, 0x999999, "   REACTOR ROD LIMIT    "))
-  ReactorLabel[Reactor["Address"]]={SliderLevelLimit=application:addChild(gui.slider(134, GuiReactorSectionStart+8, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, Reactor["RodLevelLimit"], false, ""))}
-
-
-  application:addChild(gui.panel(133, GuiReactorSectionStart+9, 26, 5, 0x2D2D2D))
-  application:addChild(gui.panel(133, GuiReactorSectionStart+9, 26, 1, 0x1F4582))
-  application:addChild(gui.text(134, GuiReactorSectionStart+9, 0x999999, " FUEL TEMPERATURE LIMIT "))
-  ReactorLabel[Reactor["Address"]]={SliderTempLimit=application:addChild(gui.slider(134, GuiReactorSectionStart+11, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, Reactor["TempLimit"], false, ""))}
+  application:addChild(gui.panel(134, GuiReactorSectionStart+5, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(134, GuiReactorSectionStart+5, 26, 1, 0x1F826B))
+  application:addChild(gui.text(135, GuiReactorSectionStart+5, 0x999999, "   REACTOR ROD LIMIT    "))
+  ReactorLabel[Reactor["Address"]]={SliderLevelLimit=application:addChild(gui.slider(135, GuiReactorSectionStart+4, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, Reactor["RodLevelLimit"], false, ""))}
 
 
-  application:addChild(gui.panel(133, GuiReactorSectionStart+12, 26, 5, 0x2D2D2D))
-  application:addChild(gui.panel(133, GuiReactorSectionStart+12, 26, 1, 0x1F4582))
+  application:addChild(gui.panel(134, GuiReactorSectionStart+9, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(134, GuiReactorSectionStart+9, 26, 1, 0x1F826B))
+  application:addChild(gui.text(135, GuiReactorSectionStart+9, 0x999999, " FUEL TEMPERATURE LIMIT "))
+  ReactorLabel[Reactor["Address"]]={SliderTempLimit=application:addChild(gui.slider(135, GuiReactorSectionStart+11, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, Reactor["TempLimit"], false, ""))}
+
+
+  application:addChild(gui.panel(134, GuiReactorSectionStart+12, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(134, GuiReactorSectionStart+12, 26, 1, 0x1F826B))
   if Reactor["ActivelyCooled"] == true then
-      application:addChild(gui.text(134, GuiReactorSectionStart+12, 0x999999, "   STEAM TANK TRIGGER   "))
-      ReactorLabel[Reactor["Address"]]={SliderSteamTrigger=application:addChild(gui.slider(134, GuiReactorSectionStart+14, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, Reactor["SteamTrigger"], false, ""))}
+      application:addChild(gui.text(135, GuiReactorSectionStart+12, 0x999999, "   STEAM TANK TRIGGER   "))
+      ReactorLabel[Reactor["Address"]]={SliderSteamTrigger=application:addChild(gui.slider(135, GuiReactorSectionStart+14, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, Reactor["SteamTrigger"], false, ""))}
   else
-      application:addChild(gui.text(134, GuiReactorSectionStart+12, 0x999999, "   POWER BANK TRIGGER   "))
-      ReactorLabel[Reactor["Address"]]={SliderPowerTrigger=application:addChild(gui.slider(134, GuiReactorSectionStart+14, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, Reactor["PowerTrigger"], false, ""))}
+      application:addChild(gui.text(135, GuiReactorSectionStart+12, 0x999999, "   POWER BANK TRIGGER   "))
+      ReactorLabel[Reactor["Address"]]={SliderPowerTrigger=application:addChild(gui.slider(135, GuiReactorSectionStart+14, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, Reactor["PowerTrigger"], false, ""))}
   end
   
   
