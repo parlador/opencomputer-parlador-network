@@ -178,10 +178,10 @@ function GetRodLevelLimit(ReactorAdresse,repo)
     end
 end
 function GetReactorName(ReactorAdresse,repo)
-    if Reactorlist["GetReactorName"] then
-       return Reactorlist[ReactorAdresse]["GetReactorName"]
+    if Reactorlist["Name"] then
+       return Reactorlist[ReactorAdresse]["Name"]
     else
-       return ReactorLoadCfg(repo,ReactorAdresse)["GetReactorName"]
+       return ReactorLoadCfg(repo,ReactorAdresse)["Name"]
     end
 end
 function GetMasterSwitch(ReactorAdresse,repo)
@@ -231,7 +231,7 @@ for i,Reactor in pairs(Reactorlist) do
   
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, 17, 0x2D2D2D))
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, GuiReactorSectionStart, 0x1F4582))
-  LabelName = application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..":"..Reactor["Address"]))
+  LabelName = application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"]))
   ReactorLabel[Reactor["Address"]]={Name=LabelName}
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
