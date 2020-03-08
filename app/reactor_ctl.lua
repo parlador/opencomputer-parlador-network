@@ -230,9 +230,35 @@ application = gui.application()
 GuiReactorSectionStart = 1
 for i,Reactor in pairs(Reactorlist) do
   
+  --Base + title
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, 17, 0x2D2D2D))
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, GuiReactorSectionStart, 0x1F4582))
   ReactorLabel[Reactor["Address"]]={Name=application:addChild(gui.text(3, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"]))}
+  
+  -- Reactor Mode
+  application:addChild(gui.text(2, GuiReactorSectionStart+3, 0x999999, "Reactor Mode:"))
+  if Reactor["ActivelyCooled"] == true then
+      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(24, GuiReactorSectionStart+3, 0x999999, "Active Cooling"))}
+  else
+      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(24, GuiReactorSectionStart+3, 0x999999, "Passive Cooling"))}
+  end
+  
+  -- Reactor Status
+  application:addChild(gui.text(2, GuiReactorSectionStart+4, 0x999999, "Reactor Status:"))
+  ReactorLabel[Reactor["Address"]]={Status=application:addChild(gui.text(24, GuiReactorSectionStart+4, 0x999999, "????"))}
+  
+  -- Reactor Temperature
+  application:addChild(gui.text(2, GuiReactorSectionStart+5, 0x999999, "Reactor Temperature:"))
+  ReactorLabel[Reactor["Address"]]={ReactorTemperature=application:addChild(gui.text(24, GuiReactorSectionStart+5, 0x999999, "0 C"))}
+  
+  -- Rod Level
+  application:addChild(gui.text(2, GuiReactorSectionStart+6, 0x999999, "Reactor Rod level:"))
+  ReactorLabel[Reactor["Address"]]={CurrentRodLevel=application:addChild(gui.text(24, GuiReactorSectionStart+6, 0x999999, "100"))}
+  
+  -- Fuel Temperature
+  application:addChild(gui.text(2, GuiReactorSectionStart+9, 0x999999, "Fuel Temperature:"))
+  ReactorLabel[Reactor["Address"]]={FuelTemp=application:addChild(gui.text(24, GuiReactorSectionStart+9, 0x999999, "0 C"))}
+  
   
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
