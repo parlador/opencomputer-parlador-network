@@ -1,9 +1,9 @@
 local gui = require("GUI")
-local component = require("component")
-local filesystem = require("filesystem")
-local io = require("io")
-local serialization = require("serialization")
-local modem = require("modem")
+component = require("component")
+filesystem = require("filesystem")
+io = require("io")
+serialization = require("serialization")
+modem = require("modem")
 
 Reactorlist = {}
 RepoCfg = "/etc/Reactor/"
