@@ -231,8 +231,8 @@ GuiReactorSectionStart = 1
 for i,Reactor in pairs(Reactorlist) do
   
   --Base + title
-  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, 17, 0x2D2D2D))
-  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, GuiReactorSectionStart, 0x1F4582))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 160, 17, 0x2D2D2D))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 160, GuiReactorSectionStart, 0x1F4582))
   ReactorLabel[Reactor["Address"]]={Name=application:addChild(gui.text(3, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"]))}
   
   -- Reactor Mode
@@ -275,6 +275,49 @@ for i,Reactor in pairs(Reactorlist) do
   application:addChild(gui.text(2, GuiReactorSectionStart+15, 0x999999, "Waste Tank:"))
   ReactorLabel[Reactor["Address"]]={WasteTank=application:addChild(gui.progressBar(24, GuiReactorSectionStart+15, 14, 0x7900E2, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
   
+  -- Steam or power tank/rate
+  if Reactor["ActivelyCooled"] == true then
+    application:addChild(gui.text(2, GuiReactorSectionStart+16, 0x999999, "Steam Tank:"))
+
+    application:addChild(gui.text(2, GuiReactorSectionStart+19, 0x999999, "Steam Produte Rate:"))
+  else
+    application:addChild(gui.text(2, GuiReactorSectionStart+16, 0x999999, "Power Bank:"))
+
+    application:addChild(gui.text(2, GuiReactorSectionStart+19, 0x999999, "Power Produte Rate:"))
+  end
+  
+  -- Ouput tank/rate
+  ReactorLabel[Reactor["Address"]]={OutputTank=application:addChild(gui.progressBar(24, GuiReactorSectionStart+16, 14, 0xA82B2B, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
+  ReactorLabel[Reactor["Address"]]={OutputRate=application:addChild(gui.text(24, GuiReactorSectionStart+19, 0x999999, "0 /T"))}
+  
+  
+  -- control zone
+  application:addChild(gui.panel(1, 23, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(1, 23, 26, 1, 0x1F4582))
+  application:addChild(gui.text(2, 23, 0x999999, "     REACTOR CONTROL    "))
+  ReactorLabel[Reactor["Address"]]={switchButton=application:addChild(gui.switch(2, 25, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, component.invoke(ReactorAdresse, "getActive")))
+
+  application:addChild(gui.panel(29, 23, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(29, 23, 26, 1, 0x1F4582))
+  application:addChild(gui.text(30, 23, 0x999999, "   REACTOR ROD LIMIT    "))
+  ReactorLabel[Reactor["Address"]]={SliderLevelLimit=application:addChild(gui.slider(30, 25, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, RodLevelLimit, false, ""))
+
+
+  application:addChild(gui.panel(1, 29, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(1, 29, 26, 1, 0x1F4582))
+  application:addChild(gui.text(2, 29, 0x999999, " FUEL TEMPERATURE LIMIT "))
+  ReactorLabel[Reactor["Address"]]={SliderTempLimit=application:addChild(gui.slider(2, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, TempLimit, false, ""))
+
+
+  application:addChild(gui.panel(29, 29, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(29, 29, 26, 1, 0x1F4582))
+  if Reactor["ActivelyCooled"] == true then
+      application:addChild(gui.text(30, 29, 0x999999, "   STEAM TANK TRIGGER   "))
+      ReactorLabel[Reactor["Address"]]={SliderSteamTrigger=application:addChild(gui.slider(31, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, SteamTrigger, false, ""))
+  else
+      application:addChild(gui.text(30, 29, 0x999999, "   POWER BANK TRIGGER   "))
+      ReactorLabel[Reactor["Address"]]={SliderPowerTrigger=application:addChild(gui.slider(31, 31, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, PowerTrigger, false, ""))
+  end
   
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
