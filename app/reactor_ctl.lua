@@ -24,8 +24,8 @@ end
 
 --------------------------------------------------------------------------------
 
-function CreateRepoCfg()
-   return filesystem.makeDirectory(RepoCfg)
+function CreateRepoCfg(repo)
+   return filesystem.makeDirectory(repo)
 end
 
 function SaveCfg(repo,file,table)
@@ -49,6 +49,7 @@ end
 
 function GlobalLoadCfg(repo)
    if ExistCfg(repo,"global") == false then
+    CreateRepoCfg(repo)
     GlobalSaveCfg(repo,GlobalInitCfg())
    end
    return LoadCfg(repo,"global")
