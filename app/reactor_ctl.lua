@@ -40,7 +40,7 @@ function LoadCfg(repo,file)
   file = io.open(repo..file..".cfg","r")
   configtbl = serialization.unserialize(file:read("*a"))
   file:close()
-   return
+   return configtbl 
 end
 
 function ExistCfg(repo,file)
