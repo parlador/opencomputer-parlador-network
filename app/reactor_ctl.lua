@@ -223,6 +223,10 @@ end
 
 --------------------------------------------------------------------------------
 
+application = GUI.application()
+
+
+
 application.eventHandler = function(application, object, eventname, ...)
     if     eventname == "touch" then
     elseif     eventname == "GUI" then
