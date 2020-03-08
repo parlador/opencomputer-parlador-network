@@ -90,7 +90,7 @@ function ReactorInitCfg(repo,ReactorAdresse)
  print("Set the Reactor Name: ")
  ReactorName = io.read()
   
- return {name=ReactorName,SteamTrigger=95,PowerTrigger=95,TempLimit=970,RodLevel=100,RodLevelLimit=100,MasterSwitch=true}
+ return {Name=ReactorName,SteamTrigger=95,PowerTrigger=95,TempLimit=970,RodLevel=100,RodLevelLimit=100,MasterSwitch=true}
 end
 
 function AllReactorInit(repo)
