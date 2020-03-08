@@ -1,6 +1,7 @@
 local component = require("component")
 local screen = component.screen
 
+for k,v in component.list() do print(k, v) end
 
   local screenblockW, screenblockH = screen.getAspectRatio()
 
