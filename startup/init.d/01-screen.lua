@@ -5,7 +5,8 @@ local screen = component.screen
 local MaxW, MaxH = gpu.maxResolution()
 
   if MaxW ~= 160 or MaxH ~= 50 then
-    print("Wrong Resolution, gpu tier3 or screen tier3 not detected, rebooting and retry detect hw")
+    print("Wrong Resolution, gpu tier3 or screen tier3 not detected, rebooting in 5 sec!")
+    os.execute("sleep 5")
     os.execute("reboot")
   end
 
