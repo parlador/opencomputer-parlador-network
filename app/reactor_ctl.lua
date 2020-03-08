@@ -198,7 +198,7 @@ function PollReactors(repo)
       tmpReactorList  = {}
       idreactor = 1
       for address, name in component.list("bigreactor", false) do
-        tmpReactorList[address]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=GetMasterSwitch(address,repo),RodLevelLimit=GetRodLevelLimit(address,repo),RodLevel=GetRodLevel(address,repo),TempLimit=GetTempLimit(address,repo),PowerTrigger=GetPowerTrigger(address,repo),SteamTrigger=GetSteamTrigger(address,repo),ReactorEnable=GetReactorActiver(address),name=GetReactorName(address,repo)}
+        tmpReactorList[address]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=GetMasterSwitch(address,repo),RodLevelLimit=GetRodLevelLimit(address,repo),RodLevel=GetRodLevel(address,repo),TempLimit=GetTempLimit(address,repo),PowerTrigger=GetPowerTrigger(address,repo),SteamTrigger=GetSteamTrigger(address,repo),ReactorEnable=GetReactorActiver(address),Name=GetReactorName(address,repo)}
         idreactor = idreactor + 1
       end
   return tmpReactorList
@@ -231,7 +231,7 @@ for i,Reactor in pairs(Reactorlist) do
   
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, 17, 0x2D2D2D))
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, GuiReactorSectionStart, 0x1F4582))
-  ReactorLabel[Reactor["Address"]]={Name= application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR INFORMATION"))}
+  ReactorLabel[Reactor["Address"]]={Name= application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["name"]..":"..Reactor["Name"]))}
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
 end
