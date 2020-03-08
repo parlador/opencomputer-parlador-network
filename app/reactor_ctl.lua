@@ -231,7 +231,7 @@ for i,Reactor in pairs(Reactorlist) do
   
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, 17, 0x2D2D2D))
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 100, GuiReactorSectionStart, 0x1F4582))
-  ReactorLabel[Reactor["address"]]["NameLabel"] = application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR INFORMATION"))
+  ReactorLabel[Reactor["Address"]]["NameLabel"] = application:addChild(gui.text(17, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR INFORMATION"))
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
 end
