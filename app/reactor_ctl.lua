@@ -42,13 +42,13 @@ function LoadCfg(repo,file)
 end
 
 function ExistCfg(repo,file)
-   return filesystem.exists(RepoCfg..file..".cfg")
+   return filesystem.exists(repo..file..".cfg")
 end
  
 
 
 function GlobalLoadCfg(repo)
-   if ExistCfg("global") == false then
+   if ExistCfg(repo,"global") == false then
     GlobalSaveCfg(repo,GlobalInitCfg())
    end
    return LoadCfg(repo,"global")
