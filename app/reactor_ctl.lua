@@ -319,6 +319,16 @@ for i,Reactor in pairs(Reactorlist) do
       ReactorLabel[Reactor["Address"]]={SliderPowerTrigger=application:addChild(gui.slider(135, GuiReactorSectionStart+14, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 95, Reactor["PowerTrigger"], false, ""))}
   end
   
+  -- line1
+  application:addChild(GUI.panel(57, 2, 50, 10, 0x2D2D2D))
+  application:addChild(GUI.panel(57, 2, 50, 1, 0x1F4582))
+  --application:addChild(GUI.text(57, 2, 0xFFFFFF, "   FUEL TEMPERATURE       "))
+  chartTemperature = application:addChild(GUI.chart(57, 3, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))
+  application:addChild(GUI.panel(57, 12, 50, 1, 0x000000))
+  application:addChild(GUI.text(57, 12, 0x000000, "                                                  "))
+  table.insert(chartTemperature.values,1,{0, 0})
+  
+  
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
 end
