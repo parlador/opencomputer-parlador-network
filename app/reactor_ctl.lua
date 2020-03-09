@@ -321,7 +321,7 @@ for i,Reactor in pairs(Reactorlist) do
   
   -- line1
   --application:addChild(gui.panel(57, 2, 33, 10, 0x2D2D2D))
-  application:addChild(gui.panel(42, 3, 28, 1, 0x1F4582))
+  application:addChild(gui.panel(40, 3, 30, 1, 0x1F4582))
   --application:addChild(gui.text(57, 2, 0xFFFFFF, "   FUEL TEMPERATURE       "))
   ReactorLabel[Reactor["Address"]]={chartTemperature=application:addChild(gui.chart(42, 4, 28, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))}
   --application:addChild(gui.panel(57, 12, 33, 1, 0x000000))
@@ -329,7 +329,7 @@ for i,Reactor in pairs(Reactorlist) do
   table.insert(ReactorLabel[Reactor["Address"]]["chartTemperature"].values,1,{0, 0})
   
   --application:addChild(gui.panel(109, 2, 33, 10, 0x2D2D2D))
-  application:addChild(gui.panel(73, 33, 28, 1, 0x1F4582))
+  application:addChild(gui.panel(73, 3, 30, 1, 0x1F4582))
   --application:addChild(GUI.text(109, 2, 0xFFFFFF, "       FUEL TANK           "))
   ReactorLabel[Reactor["Address"]]={chartFuel=application:addChild(gui.chart(73, 4, 28, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))}
   --application:addChild(gui.panel(109, 12, 50, 1, 0x000000))
@@ -338,7 +338,7 @@ for i,Reactor in pairs(Reactorlist) do
   
   
   --application:addChild(gui.panel(57, 13, 33, 10, 0x2D2D2D))
-  application:addChild(gui.panel(104, 3, 28, 1, 0x1F4582))
+  application:addChild(gui.panel(103, 3, 30, 1, 0x1F4582))
   --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
   ReactorLabel[Reactor["Address"]]={chartReact=application:addChild(gui.chart(104, 4, 28, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
   --application:addChild(gui.panel(57, 23, 50, 1, 0x000000))
