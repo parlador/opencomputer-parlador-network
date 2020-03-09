@@ -340,31 +340,31 @@ for i,Reactor in pairs(Reactorlist) do
   application:addChild(gui.panel(57, 13, 50, 10, 0x2D2D2D))
   application:addChild(gui.panel(57, 13, 50, 1, 0x1F4582))
   --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
-  chartReact = application:addChild(gui.chart(57, 14, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
+  ReactorLabel[Reactor["Address"]]={chartReact=application:addChild(gui.chart(57, 14, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
   application:addChild(gui.panel(57, 23, 50, 1, 0x000000))
   application:addChild(gui.text(57, 23, 0x000000, "                                                  "))
-  table.insert(chartReact.values,1,{0, 0})
+  table.insert(ReactorLabel[Reactor["Address"]]["chartReact"].values,1,{0, 0})
 
   application:addChild(gui.panel(109, 13, 50, 10, 0x2D2D2D))
   application:addChild(gui.panel(109, 13, 50, 1, 0x1F4582))
   --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
-  chartRod = application:addChild(gui.chart(109, 14, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
+  ReactorLabel[Reactor["Address"]]={chartRod=application:addChild(gui.chart(109, 14, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
   application:addChild(gui.panel(109, 23, 50, 1, 0x000000))
   application:addChild(gui.text(109, 23, 0x000000, "                                                  "))
-  table.insert(chartRod.values,1,{0, 0})
+  table.insert(ReactorLabel[Reactor["Address"]]["chartRod"].values,1,{0, 0})
 
   -- line 3
   application:addChild(gui.panel(57, 24, 50, 10, 0x2D2D2D))
   application:addChild(gui.panel(57, 24, 50, 1, 0x1F4582))
   --application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
-  chartPowerOuput = application:addChild(gui.chart(57, 25, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))
-  table.insert(chartPowerOuput.values,1,{0, 0})
+  ReactorLabel[Reactor["Address"]]={chartPowerOuput=application:addChild(gui.chart(57, 25, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))}
+  table.insert(ReactorLabel[Reactor["Address"]]["chartPowerOuput"].values,1,{0, 0})
 
   application:addChild(gui.panel(109, 24, 50, 10, 0x2D2D2D))
   application:addChild(gui.panel(109, 24, 50, 1, 0x1F4582))
   --application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
-  chartPower = application:addChild(gui.chart(109, 25, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))
-  table.insert(chartPower.values,1,{0, 0})
+  ReactorLabel[Reactor["Address"]]={chartPower=application:addChild(gui.chart(109, 25, 50, 10, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))}
+  table.insert(ReactorLabel[Reactor["Address"]]["chartPower"].values,1,{0, 0})
   
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
