@@ -231,7 +231,7 @@ GuiReactorSectionStart = 0
 for i,Reactor in pairs(Reactorlist) do
   
   --Base + title
-  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 40, 15, 0x2D2D2D))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 40, 16, 0x2D2D2D))
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 40, 1, 0x1F4582))
   ReactorLabel[Reactor["Address"]]={Name=application:addChild(gui.text(3, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"]))}
   
@@ -292,21 +292,21 @@ for i,Reactor in pairs(Reactorlist) do
   
   
   -- control zone
-  application:addChild(gui.panel(134, GuiReactorSectionStart+3, 26, 5, 0x2D2D2D))
-  application:addChild(gui.panel(134, GuiReactorSectionStart+3, 26, 1, 0x6B1F82))
-  application:addChild(gui.text(135, GuiReactorSectionStart+3, 0x999999, "     REACTOR CONTROL    "))
-  ReactorLabel[Reactor["Address"]]={switchButton=application:addChild(gui.switch(135, GuiReactorSectionStart+5, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, Reactor["ReactorEnable"]))}
+  application:addChild(gui.panel(134, GuiReactorSectionStart, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(134, GuiReactorSectionStart, 26, 1, 0x6B1F82))
+  application:addChild(gui.text(135, GuiReactorSectionStart, 0x999999, "     REACTOR CONTROL    "))
+  ReactorLabel[Reactor["Address"]]={switchButton=application:addChild(gui.switch(135, GuiReactorSectionStart+2, 24, 0x66DB66, 0xDB6666, 0xEEEEEE, Reactor["ReactorEnable"]))}
 
-  application:addChild(gui.panel(134, GuiReactorSectionStart+7, 26, 5, 0x2D2D2D))
-  application:addChild(gui.panel(134, GuiReactorSectionStart+7, 26, 1, 0x6B1F82))
-  application:addChild(gui.text(135, GuiReactorSectionStart+7, 0x999999, "   REACTOR ROD LIMIT    "))
-  ReactorLabel[Reactor["Address"]]={SliderLevelLimit=application:addChild(gui.slider(135, GuiReactorSectionStart+8, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, Reactor["RodLevelLimit"], false, ""))}
+  application:addChild(gui.panel(134, GuiReactorSectionStart+5, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(134, GuiReactorSectionStart+5, 26, 1, 0x6B1F82))
+  application:addChild(gui.text(135, GuiReactorSectionStart+5, 0x999999, "   REACTOR ROD LIMIT    "))
+  ReactorLabel[Reactor["Address"]]={SliderLevelLimit=application:addChild(gui.slider(135, GuiReactorSectionStart+6, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 5, 100, Reactor["RodLevelLimit"], false, ""))}
 
 
-  application:addChild(gui.panel(134, GuiReactorSectionStart+10, 26, 5, 0x2D2D2D))
-  application:addChild(gui.panel(134, GuiReactorSectionStart+10, 26, 1, 0x6B1F82))
-  application:addChild(gui.text(135, GuiReactorSectionStart+10, 0x999999, " FUEL TEMPERATURE LIMIT "))
-  ReactorLabel[Reactor["Address"]]={SliderTempLimit=application:addChild(gui.slider(135, GuiReactorSectionStart+11, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, Reactor["TempLimit"], false, ""))}
+  application:addChild(gui.panel(134, GuiReactorSectionStart+9, 26, 5, 0x2D2D2D))
+  application:addChild(gui.panel(134, GuiReactorSectionStart+9, 26, 1, 0x6B1F82))
+  application:addChild(gui.text(135, GuiReactorSectionStart+9, 0x999999, " FUEL TEMPERATURE LIMIT "))
+  ReactorLabel[Reactor["Address"]]={SliderTempLimit=application:addChild(gui.slider(135, GuiReactorSectionStart+10, 24, 0x20E8DB, 0x0, 0xFFFFFF, 0x20E8DB, 70, 1870, Reactor["TempLimit"], false, ""))}
 
 
   application:addChild(gui.panel(134, GuiReactorSectionStart+13, 26, 5, 0x2D2D2D))
@@ -323,7 +323,7 @@ for i,Reactor in pairs(Reactorlist) do
   --application:addChild(gui.panel(57, 2, 33, 10, 0x2D2D2D))
   application:addChild(gui.panel(41, 1, 31, 1, 0xCE9200))
   --application:addChild(gui.text(57, 2, 0xFFFFFF, "   FUEL TEMPERATURE       "))
-  ReactorLabel[Reactor["Address"]]={chartTemperature=application:addChild(gui.chart(41, 2, 31, 7, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))}
+  ReactorLabel[Reactor["Address"]]={chartTemperature=application:addChild(gui.chart(41, 2, 31, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x5F63FE, 1, 1, "s", "C", true, {}))}
   --application:addChild(gui.panel(57, 12, 33, 1, 0x000000))
   --application:addChild(gui.text(57, 12, 0x000000, "                                                  "))
   table.insert(ReactorLabel[Reactor["Address"]]["chartTemperature"].values,1,{0, 0})
@@ -331,7 +331,7 @@ for i,Reactor in pairs(Reactorlist) do
   --application:addChild(gui.panel(109, 2, 33, 10, 0x2D2D2D))
   application:addChild(gui.panel(72, 1, 31, 1, 0xCE9200))
   --application:addChild(GUI.text(109, 2, 0xFFFFFF, "       FUEL TANK           "))
-  ReactorLabel[Reactor["Address"]]={chartFuel=application:addChild(gui.chart(72, 2, 31, 7, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))}
+  ReactorLabel[Reactor["Address"]]={chartFuel=application:addChild(gui.chart(72, 2, 31, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xD2DE67, 1, 1, "s", "%", true, {}))}
   --application:addChild(gui.panel(109, 12, 50, 1, 0x000000))
   --application:addChild(gui.text(109, 12, 0x000000, "                                                  "))
   table.insert(ReactorLabel[Reactor["Address"]]["chartFuel"].values,1,{0, 0})
@@ -340,30 +340,30 @@ for i,Reactor in pairs(Reactorlist) do
   --application:addChild(gui.panel(57, 13, 33, 10, 0x2D2D2D))
   application:addChild(gui.panel(103, 1, 31, 1, 0xCE9200))
   --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
-  ReactorLabel[Reactor["Address"]]={chartReact=application:addChild(gui.chart(103, 2, 31, 7, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
+  ReactorLabel[Reactor["Address"]]={chartReact=application:addChild(gui.chart(103, 2, 31, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
   --application:addChild(gui.panel(57, 23, 50, 1, 0x000000))
   --application:addChild(gui.text(57, 23, 0x000000, "                                                  "))
   table.insert(ReactorLabel[Reactor["Address"]]["chartReact"].values,1,{0, 0})
 
   --line 2
   --application:addChild(gui.panel(109, 13, 33, 10, 0x2D2D2D))
-  application:addChild(gui.panel(40, 8, 31, 1, 0x1F4582))
+  application:addChild(gui.panel(41, 10, 31, 1, 0x1F4582))
   --application:addChild(GUI.text(45, 20, 0xFFFFFF, "    FUEL REACTIVITE      "))
-  ReactorLabel[Reactor["Address"]]={chartRod=application:addChild(gui.chart(40, 9, 31, 7, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
+  ReactorLabel[Reactor["Address"]]={chartRod=application:addChild(gui.chart(40, 11, 31, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
   --application:addChild(gui.panel(109, 23, 50, 1, 0x000000))
   --application:addChild(gui.text(109, 23, 0x000000, "                                                  "))
   table.insert(ReactorLabel[Reactor["Address"]]["chartRod"].values,1,{0, 0})
 
   --application:addChild(gui.panel(57, 24, 50, 10, 0x2D2D2D))
-  application:addChild(gui.panel(72, 8, 31, 1, 0x1F4582))
+  application:addChild(gui.panel(72, 10, 31, 1, 0x1F4582))
   --application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
-  ReactorLabel[Reactor["Address"]]={chartPowerOuput=application:addChild(gui.chart(72, 9, 31, 7, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))}
+  ReactorLabel[Reactor["Address"]]={chartPowerOuput=application:addChild(gui.chart(72, 11, 31, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))}
   table.insert(ReactorLabel[Reactor["Address"]]["chartPowerOuput"].values,1,{0, 0})
 
   --application:addChild(gui.panel(109, 24, 50, 10, 0x2D2D2D))
-  application:addChild(gui.panel(103, 8, 31, 1, 0x1F4582))
+  application:addChild(gui.panel(103, 10, 31, 1, 0x1F4582))
   --application:addChild(GUI.text(73, 20, 0xFFFFFF, "      POWER BANK            "))
-  ReactorLabel[Reactor["Address"]]={chartPower=application:addChild(gui.chart(103, 9, 31, 7, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))}
+  ReactorLabel[Reactor["Address"]]={chartPower=application:addChild(gui.chart(103, 11, 31, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))}
   table.insert(ReactorLabel[Reactor["Address"]]["chartPower"].values,1,{0, 0})
   
   application:addChild(gui.panel(1, 17, 160, 1, 0x000000))
