@@ -366,7 +366,7 @@ for i,Reactor in pairs(Reactorlist) do
   ReactorLabel[Reactor["Address"]]={chartPower=application:addChild(gui.chart(103, 12, 30, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))}
   table.insert(ReactorLabel[Reactor["Address"]]["chartPower"].values,1,{0, 0})
   
-  application:addChild(gui.panel(1, 17, 160, 1, 0x000000))
+  application:addChild(gui.panel(1, 18, 160, 1, 0x000000))
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
 end
