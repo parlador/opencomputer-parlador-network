@@ -233,7 +233,7 @@ for i,Reactor in pairs(Reactorlist) do
   --Base + title
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 40, 16, 0x2D2D2D))
   application:addChild(gui.panel(1, GuiReactorSectionStart+1, 40, 1, 0x1F4582))
-  ReactorLabel[Reactor["Address"]]={Name=application:addChild(gui.text(3, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"]))}
+  ReactorLabel[Reactor["Address"]]={Name=application:addChild(gui.text(3, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"].." INFORMATION"))}
   
   -- Reactor Mode
   application:addChild(gui.text(2, GuiReactorSectionStart+3, 0x999999, "Reactor Mode:"))
