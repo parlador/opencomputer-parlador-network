@@ -231,64 +231,64 @@ GuiReactorSectionStart = 1
 for i,Reactor in pairs(Reactorlist) do
   
   --Base + title
-  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 160, 17, 0x2D2D2D))
-  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 160, GuiReactorSectionStart, 0x1F4582))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 39, 15, 0x2D2D2D))
+  application:addChild(gui.panel(1, GuiReactorSectionStart+1, 39, GuiReactorSectionStart, 0x1F4582))
   ReactorLabel[Reactor["Address"]]={Name=application:addChild(gui.text(3, GuiReactorSectionStart+1, 0xFFFFFF, "REACTOR "..GlobalConfig["Name"]..":"..Reactor["Name"]))}
   
   -- Reactor Mode
   application:addChild(gui.text(2, GuiReactorSectionStart+3, 0x999999, "Reactor Mode:"))
   if Reactor["ActivelyCooled"] == true then
-      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(24, GuiReactorSectionStart+3, 0x999999, "Active Cooling"))}
+      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(23, GuiReactorSectionStart+3, 0x999999, "Active Cooling"))}
   else
-      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(24, GuiReactorSectionStart+3, 0x999999, "Passive Cooling"))}
+      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(23, GuiReactorSectionStart+3, 0x999999, "Passive Cooling"))}
   end
   
   -- Reactor Status
   application:addChild(gui.text(2, GuiReactorSectionStart+4, 0x999999, "Reactor Status:"))
-  ReactorLabel[Reactor["Address"]]={Status=application:addChild(gui.text(24, GuiReactorSectionStart+4, 0x999999, "????"))}
+  ReactorLabel[Reactor["Address"]]={Status=application:addChild(gui.text(23, GuiReactorSectionStart+4, 0x999999, "????"))}
   
   -- Reactor Temperature
   application:addChild(gui.text(2, GuiReactorSectionStart+5, 0x999999, "Reactor Temperature:"))
-  ReactorLabel[Reactor["Address"]]={ReactorTemperature=application:addChild(gui.text(24, GuiReactorSectionStart+5, 0x999999, "0 C"))}
+  ReactorLabel[Reactor["Address"]]={ReactorTemperature=application:addChild(gui.text(23, GuiReactorSectionStart+5, 0x999999, "0 C"))}
   
   -- Rod Level
   application:addChild(gui.text(2, GuiReactorSectionStart+6, 0x999999, "Reactor Rod level:"))
-  ReactorLabel[Reactor["Address"]]={CurrentRodLevel=application:addChild(gui.text(24, GuiReactorSectionStart+6, 0x999999, "100"))}
+  ReactorLabel[Reactor["Address"]]={CurrentRodLevel=application:addChild(gui.text(23, GuiReactorSectionStart+6, 0x999999, "100"))}
   
   -- Fuel Temperature
   application:addChild(gui.text(2, GuiReactorSectionStart+8, 0x999999, "Fuel Temperature:"))
-  ReactorLabel[Reactor["Address"]]={FuelTemp=application:addChild(gui.text(24, GuiReactorSectionStart+8, 0x999999, "0 C"))}
+  ReactorLabel[Reactor["Address"]]={FuelTemp=application:addChild(gui.text(23, GuiReactorSectionStart+8, 0x999999, "0 C"))}
   
   -- Fuel Reactivite
-  application:addChild(gui.text(2, GuiReactorSectionStart+11, 0x999999, "Fuel Reactivite:"))
-  ReactorLabel[Reactor["Address"]]={FuelReactivite=application:addChild(gui.text(24, GuiReactorSectionStart+11, 0x999999, "0 %"))}
+  application:addChild(gui.text(2, GuiReactorSectionStart+9, 0x999999, "Fuel Reactivite:"))
+  ReactorLabel[Reactor["Address"]]={FuelReactivite=application:addChild(gui.text(23, GuiReactorSectionStart+11, 0x999999, "0 %"))}
   
   -- Fuel Consume Rate
-  application:addChild(gui.text(2, GuiReactorSectionStart+12, 0x999999, "Fuel Consume Rate:"))
-  ReactorLabel[Reactor["Address"]]={FuelRate=application:addChild(gui.text(24, GuiReactorSectionStart+12, 0x999999, "0 MB/T"))}
+  application:addChild(gui.text(2, GuiReactorSectionStart+10, 0x999999, "Fuel Consume Rate:"))
+  ReactorLabel[Reactor["Address"]]={FuelRate=application:addChild(gui.text(23, GuiReactorSectionStart+12, 0x999999, "0 MB/T"))}
   
   -- Fuel Tank
-  application:addChild(gui.text(2, GuiReactorSectionStart+13, 0x999999, "Fuel Tank:"))
-  ReactorLabel[Reactor["Address"]]={FuelTank=application:addChild(gui.progressBar(24, GuiReactorSectionStart+13, 14, 0xD2DE67, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
+  application:addChild(gui.text(2, GuiReactorSectionStart+11, 0x999999, "Fuel Tank:"))
+  ReactorLabel[Reactor["Address"]]={FuelTank=application:addChild(gui.progressBar(23, GuiReactorSectionStart+13, 14, 0xD2DE67, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
   
   -- Waste Tank
-  application:addChild(gui.text(2, GuiReactorSectionStart+14, 0x999999, "Waste Tank:"))
-  ReactorLabel[Reactor["Address"]]={WasteTank=application:addChild(gui.progressBar(24, GuiReactorSectionStart+14, 14, 0x7900E2, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
+  application:addChild(gui.text(2, GuiReactorSectionStart+12, 0x999999, "Waste Tank:"))
+  ReactorLabel[Reactor["Address"]]={WasteTank=application:addChild(gui.progressBar(23, GuiReactorSectionStart+14, 14, 0x7900E2, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
   
   -- Steam or power tank/rate
   if Reactor["ActivelyCooled"] == true then
-    application:addChild(gui.text(2, GuiReactorSectionStart+15, 0x999999, "Steam Tank:"))
+    application:addChild(gui.text(2, GuiReactorSectionStart+13, 0x999999, "Steam Tank:"))
 
-    application:addChild(gui.text(2, GuiReactorSectionStart+16, 0x999999, "Steam Produte Rate:"))
+    application:addChild(gui.text(2, GuiReactorSectionStart+14, 0x999999, "Steam Produte Rate:"))
   else
-    application:addChild(gui.text(2, GuiReactorSectionStart+15, 0x999999, "Power Bank:"))
+    application:addChild(gui.text(2, GuiReactorSectionStart+13, 0x999999, "Power Bank:"))
 
-    application:addChild(gui.text(2, GuiReactorSectionStart+16, 0x999999, "Power Produte Rate:"))
+    application:addChild(gui.text(2, GuiReactorSectionStart+14, 0x999999, "Power Produte Rate:"))
   end
   
   -- Ouput tank/rate
-  ReactorLabel[Reactor["Address"]]={OutputTank=application:addChild(gui.progressBar(24, GuiReactorSectionStart+15, 14, 0xA82B2B, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
-  ReactorLabel[Reactor["Address"]]={OutputRate=application:addChild(gui.text(24, GuiReactorSectionStart+16, 0x999999, "0 /T"))}
+  ReactorLabel[Reactor["Address"]]={OutputTank=application:addChild(gui.progressBar(23, GuiReactorSectionStart+13, 14, 0xA82B2B, 0xEEEEEE, 0xEEEEEE, 0, true, false))}
+  ReactorLabel[Reactor["Address"]]={OutputRate=application:addChild(gui.text(23, GuiReactorSectionStart+14, 0x999999, "0 /T"))}
   
   
   -- control zone
@@ -366,7 +366,7 @@ for i,Reactor in pairs(Reactorlist) do
   ReactorLabel[Reactor["Address"]]={chartPower=application:addChild(gui.chart(103, 12, 30, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))}
   table.insert(ReactorLabel[Reactor["Address"]]["chartPower"].values,1,{0, 0})
   
-  application:addChild(gui.panel(1, 18, 160, 1, 0x000000))
+  application:addChild(gui.panel(1, 19, 160, 1, 0x000000))
   
   GuiReactorSectionStart = GuiReactorSectionStart + 17
 end
