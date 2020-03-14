@@ -300,14 +300,14 @@ function UpdateUI(Reactorlist,ReactorLabel)
  
     if Reactor["ActivelyCooled"] == true then
         ReactorLabel[Reactor["Address"]]["OutputTank"].value = round(Reactor["PourcentageHotFuel"],0)
-        table.insert(chartPower.values, {chartcount, Reactor["PourcentageHotFuel"]})
+        table.insert(ReactorLabel[Reactor["Address"]]["chartPower"].values, {chartcount, Reactor["PourcentageHotFuel"]})
         ReactorLabel[Reactor["Address"]]["OutputRate"].text = round(Reactor["HotFluidProducedLastTick"],1).." MB/T"
-        table.insert(chartPowerOuput.values, {chartcount, Reactor["HotFluidProducedLastTick"]})
+        table.insert(ReactorLabel[Reactor["chartPowerOuput"].values, {chartcount, Reactor["HotFluidProducedLastTick"]})
     else
         ReactorLabel[Reactor["Address"]]["OutputTank"].value = round(Reactor["PourcentagePower"],0)
-        table.insert(chartPower.values, {chartcount, Reactor["PourcentagePower"]})
+        table.insert(ReactorLabel[Reactor["chartPower"].values, {chartcount, Reactor["PourcentagePower"]})
         ReactorLabel[Reactor["Address"]]["OutputRate"].text = round(Reactor["EnergyProducedLastTick"],1).." RF/T"
-        table.insert(chartPowerOuput.values, {chartcount, Reactor["EnergyProducedLastTick"]})
+        table.insert(ReactorLabel[Reactor["chartPowerOuput"].values, {chartcount, Reactor["EnergyProducedLastTick"]})
     end
  
     if tablelength(ReactorLabel[Reactor["Address"]]["chartReact"].values) > 31 then
