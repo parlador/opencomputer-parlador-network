@@ -210,13 +210,7 @@ end
 function ManageReactor(Reactorlist,ReactorLabel)
   
    for i,Reactor in pairs(Reactorlist) do
-    print(serialization.serialize(Reactor))
-    
-    for ie,Label in pairs(ReactorLabel) do
-      print(ie)
-    end  
-      
-
+   
     if ReactorLabel[Reactor["Address"]]["switchButton"].state == true then
         if Reactor["ActivelyCooled"] == true then
             ReactorActiveCooling(Reactor,ReactorLabel[Reactor["Address"]])
@@ -467,5 +461,5 @@ end
 --------------------------------------------------------------------------------
 
 
---application:draw(true)
+application:draw(true)
 application:start(1)
