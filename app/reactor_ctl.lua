@@ -207,7 +207,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function ProcessingReactor(repo)
+function ManagingReactor(repo)
   
 end
 
@@ -347,7 +347,7 @@ for i,Reactor in pairs(Reactorlist) do
 
   --line 2
   application:addChild(gui.panel(39, 9, 32, 9, 0x2D2D2D))
-  application:addChild(gui.panel(39, 9, 32, 1, 0x1F4582))
+  application:addChild(gui.panel(39, 9, 32, 1, 0xCE9200))
   application:addChild(gui.text(39, 9, 0xFFFFFF, "      ROD LEVEL"))
   ReactorLabel[Reactor["Address"]]={chartRod=application:addChild(gui.chart(39, 10, 32, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))}
   --application:addChild(gui.panel(109, 23, 50, 1, 0x000000))
@@ -355,13 +355,13 @@ for i,Reactor in pairs(Reactorlist) do
   table.insert(ReactorLabel[Reactor["Address"]]["chartRod"].values,1,{0, 0})
 
   application:addChild(gui.panel(71, 9, 32, 9, 0x2D2D2D))
-  application:addChild(gui.panel(71, 9, 32, 1, 0x1F4582))
+  application:addChild(gui.panel(71, 9, 32, 1, 0xCE9200))
   application:addChild(gui.text(71, 9, 0xFFFFFF, "      POWER RATE"))
   ReactorLabel[Reactor["Address"]]={chartPowerOuput=application:addChild(gui.chart(71, 10, 32, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "RF", true, {}))}
   table.insert(ReactorLabel[Reactor["Address"]]["chartPowerOuput"].values,1,{0, 0})
 
   application:addChild(gui.panel(103, 9, 32, 9, 0x2D2D2D))
-  application:addChild(gui.panel(103, 9, 32, 1, 0x1F4582))
+  application:addChild(gui.panel(103, 9, 32, 1, 0xCE9200))
   application:addChild(gui.text(103, 9, 0xFFFFFF, "      POWER BANK"))
   ReactorLabel[Reactor["Address"]]={chartPower=application:addChild(gui.chart(103, 10, 32, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0xA82B2B, 1, 1, "s", "%", true, {}))}
   table.insert(ReactorLabel[Reactor["Address"]]["chartPower"].values,1,{0, 0})
@@ -374,7 +374,9 @@ end
 application.eventHandler = function(application, object, eventname, ...)
     if eventname == "touch" or eventname == "GUI" or eventname == "drag" or eventname == "drop" or eventname == "key_down" or eventname == "key_up" or eventname == nil then
         Reactorlist = PollReactors(RepoCfg)
-        ProcessingReactor()
+        UpdateUI(Reactorlist,ReactorLabel)
+        UpdateCfg(ReactorLabel)
+        ManageReactor(Reactorlist,ReactorLabel)
     else                
         gui.alert(eventname)
     end
