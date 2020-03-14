@@ -488,14 +488,14 @@ for i,Reactor in pairs(Reactorlist) do
   application:addChild(gui.panel(103, GuiReactorSectionStart+1, 32, 9, 0x2D2D2D))
   application:addChild(gui.panel(103, GuiReactorSectionStart+1, 32, 1, 0xCE9200))
   application:addChild(gui.text(103, GuiReactorSectionStart+1, 0xFFFFFF, "      FUEL REACTIVITE"))
-  ReactorLabel[Reactor["Address"]]["chartReact"]=application:addChild(gui.chart(103, GuiReactorSectionStart+2, 32, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))                                                "))
+  ReactorLabel[Reactor["Address"]]["chartReact"]=application:addChild(gui.chart(103, GuiReactorSectionStart+2, 32, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
   table.insert(ReactorLabel[Reactor["Address"]]["chartReact"].values,1,{0, 0})
 
   --line 2
   application:addChild(gui.panel(39, GuiReactorSectionStart+9, 32, 9, 0x2D2D2D))
   application:addChild(gui.panel(39, GuiReactorSectionStart+9, 32, 1, 0xCE9200))
   application:addChild(gui.text(39, GuiReactorSectionStart+9, 0xFFFFFF, "      ROD LEVEL"))
-  ReactorLabel[Reactor["Address"]]["chartRod"]=application:addChild(gui.chart(39, GuiReactorSectionStart+10, 32, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))                                             "))
+  ReactorLabel[Reactor["Address"]]["chartRod"]=application:addChild(gui.chart(39, GuiReactorSectionStart+10, 32, 8, 0xEEEEEE, 0xAAAAAA, 0x888888, 0x00FF91, 1, 1, "s", "%", true, {}))
   table.insert(ReactorLabel[Reactor["Address"]]["chartRod"].values,1,{0, 0})
 
   application:addChild(gui.panel(71, GuiReactorSectionStart+9, 32, 9, 0x2D2D2D))
