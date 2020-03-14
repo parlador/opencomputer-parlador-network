@@ -280,6 +280,75 @@ function SetAllRodLevel(LevelSet,Reactor,Label)
 end
 
 function UpdateUI(Reactorlist,ReactorLabel)
+  for i,Reactor in pairs(Reactorlist) do  
+    table.insert(ReactorLabel[Reactor["Address"]]["chartFuel"].values, {chartcount, GetPourcentageFuel()})
+   
+    table.insert(ReactorLabel[Reactor["Address"]]["chartReact"].values, {chartcount, component.invoke(ReactorAdresse, "getFuelReactivity")})
+ 
+    table.insert(ReactorLabel[Reactor["Address"]]["chartRod"].values, {chartcount, RodLevel})
+    
+ 
+    table.insert(ReactorLabel[Reactor["Address"]]["chartTemperature"].values, {chartcount, component.invoke(ReactorAdresse, "getFuelTemperature")})
+ 
+    ReactorLabel[Reactor["Address"]]["ReactorTemp"].text = round(component.invoke(ReactorAdresse, "getCasingTemperature"),1).." C"
+    ReactorLabel[Reactor["Address"]]["FuelTemp"].text = round(component.invoke(ReactorAdresse, "getFuelTemperature"),1).." C"
+    ReactorLabel[Reactor["Address"]]["FuelReactivite"].text = round(component.invoke(ReactorAdresse, "getFuelReactivity"),1).." %"
+    ReactorLabel[Reactor["Address"]]["FuelRate"].text = round(component.invoke(ReactorAdresse, "getFuelConsumedLastTick"),2).." MB/T"
+ 
+    ReactorLabel[Reactor["Address"]]["FuelTank"].value = round(GetPourcentageFuel(),0)
+    ReactorLabel[Reactor["Address"]]["WasteTank"].value = round(GetPourcentageWaste(),0)
+ 
+    if component.invoke(ReactorAdresse, "isActivelyCooled") == true then
+        ReactorLabel[Reactor["Address"]]["OutputTank"].value = round(GetPourcentageHotFuel(),0)
+        table.insert(chartPower.values, {chartcount, GetPourcentageHotFuel()})
+        ReactorLabel[Reactor["Address"]]["OutputRate"].text = round(component.invoke(ReactorAdresse, "getHotFluidProducedLastTick"),1).." MB/T"
+        table.insert(chartPowerOuput.values, {chartcount, component.invoke(ReactorAdresse, "getHotFluidProducedLastTick")})
+    else
+        ReactorLabel[Reactor["Address"]]["OutputTank"].value = round(GetPourcentagePower(),0)
+        table.insert(chartPower.values, {chartcount, GetPourcentagePower()})
+        ReactorLabel[Reactor["Address"]]["OutputRate"].text = round(component.invoke(ReactorAdresse, "getEnergyProducedLastTick"),1).." RF/T"
+        table.insert(chartPowerOuput.values, {chartcount, component.invoke(ReactorAdresse, "getEnergyProducedLastTick")})
+    end
+ 
+    if tablelength(ReactorLabel[Reactor["Address"]]["chartReact"].values) > 31 then
+        table.remove(ReactorLabel[Reactor["Address"]]["chartReact"].values, 1)
+        table.insert(ReactorLabel[Reactor["Address"]]["chartReact"].values,1,{chartcount-30, 0})
+        table.remove(ReactorLabel[Reactor["Address"]]["chartReact"].values, 2)
+ 
+    end
+     if tablelength(ReactorLabel[Reactor["Address"]]["chartRod"].values) > 31 then
+        table.remove(ReactorLabel[Reactor["Address"]]["chartRod"].values, 1)
+        table.insert(ReactorLabel[Reactor["Address"]]["chartRod"].values,1,{chartcount-30, 0})
+        table.remove(ReactorLabel[Reactor["Address"]]["chartRod"].values, 2)
+ 
+    end
+    if tablelength(ReactorLabel[Reactor["Address"]]["chartFuel"].values) > 31 then
+        table.remove(ReactorLabel[Reactor["Address"]]["chartFuel"].values, 1)
+        table.insert(ReactorLabel[Reactor["Address"]]["chartFuel"].values,1,{chartcount-30, 0})
+        table.remove(ReactorLabel[Reactor["Address"]]["chartFuel"].values, 2)
+ 
+    end
+    if tablelength(ReactorLabel[Reactor["Address"]]["chartPower"].values) > 31 then
+        table.remove(ReactorLabel[Reactor["Address"]]["chartPower"].values, 1)
+        table.insert(ReactorLabel[Reactor["Address"]]["chartPower"].values,1,{chartcount-30, 0})
+        table.remove(ReactorLabel[Reactor["Address"]]["chartPower"].values, 2)
+       
+    end
+    if tablelength(ReactorLabel[Reactor["Address"]]["chartPowerOuput"].values) > 31 then
+        table.remove(ReactorLabel[Reactor["Address"]]["chartPowerOuput"].values, 1)
+        table.insert(ReactorLabel[Reactor["Address"]]["chartPowerOuput"].values,1,{chartcount-30, 0})
+        table.remove(ReactorLabel[Reactor["Address"]]["chartPowerOuput"].values, 2)
+       
+    end
+    if tablelength(ReactorLabel[Reactor["Address"]]["chartTemperature"].values) > 31 then
+        table.remove(ReactorLabel[Reactor["Address"]]["chartTemperature"].values, 1)
+        table.insert(ReactorLabel[Reactor["Address"]]["chartTemperature"].values,1,{chartcount-30, 0})
+        table.remove(ReactorLabel[Reactor["Address"]]["chartTemperature"].values, 2)
+ 
+    end
+ end
+    chartcount = chartcount + 1
+    application:draw(true)
   
 end 
   
