@@ -320,9 +320,9 @@ for i,Reactor in pairs(Reactorlist) do
   -- Reactor Mode
   application:addChild(gui.text(2, GuiReactorSectionStart+3, 0x999999, "Reactor Mode:"))
   if Reactor["ActivelyCooled"] == true then
-      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(23, GuiReactorSectionStart+3, 0x999999, "Active Cooling"))}
+      ReactorLabel[Reactor["Address"]]["Mode"]=application:addChild(gui.text(23, GuiReactorSectionStart+3, 0x999999, "Active Cooling"))
   else
-      ReactorLabel[Reactor["Address"]]={Mode=application:addChild(gui.text(23, GuiReactorSectionStart+3, 0x999999, "Passive Cooling"))}
+      ReactorLabel[Reactor["Address"]]["Mode"]=application:addChild(gui.text(23, GuiReactorSectionStart+3, 0x999999, "Passive Cooling"))
   end
   
   -- Reactor Status
