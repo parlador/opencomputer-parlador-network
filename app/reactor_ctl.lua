@@ -211,7 +211,7 @@ function ManageReactor(Reactorlist,ReactorLabel)
   
    for i,Reactor in pairs(Reactorlist) do
 
-    if ReactorLabel[Reactor["Address"]]["switchButton"].state == true then
+    if ReactorLabel[Reactor["Address"]]["switch"].state == true then
         if Reactor["ActivelyCooled"] == true then
             ReactorActiveCooling(Reactor,ReactorLabel[Reactor["Address"]])
         else
