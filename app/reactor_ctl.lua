@@ -6,7 +6,7 @@ os = require("os")
 serialization = require("serialization")
 term = require("term")
 modem = component.modem
-
+chartcount = 1
 ReactorLabel = {}
 Reactorlist = {}
 RepoCfg = "/etc/Reactor/"
@@ -277,7 +277,7 @@ function SetAllRodLevel(LevelSet,Reactor,Label)
           RodLevel = LevelSet
           component.invoke(Reactor["Address"], "setAllControlRodLevels",LevelSet)
       end
-function
+end
 
 function UpdateUI(Reactorlist,ReactorLabel)
   
