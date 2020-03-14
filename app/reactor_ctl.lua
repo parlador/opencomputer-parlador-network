@@ -207,8 +207,84 @@ end
 
 --------------------------------------------------------------------------------
 
-function ManagingReactor(repo)
+function ManageReactor(Reactorlist,ReactorLabel)
   
+   for i,Reactor in pairs(Reactorlist) do
+
+    if ReactorLabel[Reactor["Address"]]["switchButton"].state == true then
+        if Reactor["ActivelyCooled"] == true then
+            ReactorActiveCooling(Reactor,ReactorLabel[Reactor["Address"]])
+        else
+            ReactorPassiveCooling(Reactor,ReactorLabel[Reactor["Address"]])
+        end
+        ManageTemperatureAndRod(Reactor,ReactorLabel[Reactor["Address"]])
+    else
+        component.invoke(Reactor["Address"], "setActive", false)
+        ReactorLabel[Reactor["Address"]]["Status"].text = "Disabled"
+    end
+   
+   end
+    
+end
+
+function ReactorActiveCooling(Reactor,Label)
+    if round(Reactor["PourcentageHotFuel"],0) < Label["SliderPowerTrigger"].value then
+            component.invoke(Reactor["Address"], "setActive", true)
+            Label["Status"].text = "Running"
+    else
+            component.invoke(Reactor["Address"], "setActive", false)
+            Label["Status"].text = "Standby"
+    end
+end
+
+function ReactorPassiveCooling(Reactor,Label)
+    if round(Reactor["PourcentagePower"],0) < Label["SliderPowerTrigger"].value then
+            component.invoke(Reactor["Address"], "setActive", true)
+            Label["Status"].text = "Running"
+    else
+            component.invoke(Reactor["Address"], "setActive", false)
+            Label["Status"].text = "Standby"
+    end
+end
+
+function ManageTemperatureAndRod(Reactor,Label)
+    fueltemp = round(Reactor["FuelTemperature"],0)
+    targettemp = Label["SliderTempLimit"].value
+    
+     if fueltemp > targettemp then
+            heatover = (fueltemp - targettemp)
+            if (heatover*2) > 99 then
+                SetAllRodLevel(100,Reactor,Label)
+            elseif (heatover*2) < 1 then
+                SetAllRodLevel(0,Reactor,Label)
+            else
+                SetAllRodLevel((heatover*2),Reactor,Label)
+            end
+    else
+        SetAllRodLevel(0,Reactor,Label)
+    end
+end
+
+function SetAllRodLevel(LevelSet,Reactor,Label)
+   RodLimit = tonumber(Label["SliderLevelLimit"].value)
+   
+      if LevelSet > RodLimit then
+          Label["CurrentRodLevel"].text = RodLimit
+          RodLevel = RodLimit
+          component.invoke(Reactor["Address"], "setAllControlRodLevels",RodLimit)
+      else
+          Label["CurrentRodLevel"].text = LevelSet
+          RodLevel = LevelSet
+          component.invoke(Reactor["Address"], "setAllControlRodLevels",LevelSet)
+      end
+function
+
+function UpdateUI(Reactorlist,ReactorLabel)
+  
+end 
+  
+function UpdateCfg(RepoCfg,ReactorLabel)
+
 end
 
 --------------------------------------------------------------------------------
@@ -375,7 +451,7 @@ application.eventHandler = function(application, object, eventname, ...)
     if eventname == "touch" or eventname == "GUI" or eventname == "drag" or eventname == "drop" or eventname == "key_down" or eventname == "key_up" or eventname == nil then
         Reactorlist = PollReactors(RepoCfg)
         UpdateUI(Reactorlist,ReactorLabel)
-        UpdateCfg(ReactorLabel)
+        UpdateCfg(RepoCfg,ReactorLabel)
         ManageReactor(Reactorlist,ReactorLabel)
     else                
         gui.alert(eventname)
