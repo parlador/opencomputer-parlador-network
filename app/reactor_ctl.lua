@@ -290,7 +290,7 @@ function UpdateUI(Reactorlist,ReactorLabel)
  
     table.insert(ReactorLabel[Reactor["Address"]]["chartTemperature"].values, {chartcount, Reactor["FuelTemperature"]})
  
-    ReactorLabel[Reactor["Address"]]["ReactorTemp"].text = round(Reactor["CasingTemperature"],1).." C"
+    ReactorLabel[Reactor["Address"]]["ReactorTemperature"].text = round(Reactor["CasingTemperature"],1).." C"
     ReactorLabel[Reactor["Address"]]["FuelTemp"].text = round(Reactor["FuelTemperature"],1).." C"
     ReactorLabel[Reactor["Address"]]["FuelReactivite"].text = round(Reactor["FuelReactivity"],1).." %"
     ReactorLabel[Reactor["Address"]]["FuelRate"].text = round(Reactor["FuelConsumedLastTick"],2).." MB/T"
