@@ -462,5 +462,5 @@ end
 --------------------------------------------------------------------------------
 
 
-application:draw(true)
+--application:draw(true)
 application:start(1)
