@@ -71,7 +71,7 @@ function GlobalInitCfg()
  print("Set the Group Name: ")
  GroupName = io.read()
 
- return {name=GroupName}
+ return {Name=GroupName}
 end
 
 function ReactorLoadCfg(repo,ReactorAdresse)
