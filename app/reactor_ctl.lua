@@ -209,6 +209,10 @@ function PollReactors(repo)
         tmpReactorList[address]={Address=address,PourcentageHotFuel=GetPourcentageHotFuel(address),PourcentageWaste=GetPourcentageWaste(address),PourcentageFuel=GetPourcentageFuel(address),PourcentagePower=GetPourcentagePower(address),ActivelyCooled=GetActivelyCooled(address),CasingTemperature=GetCasingTemperature(address),FuelTemperature=GetFuelTemperature(address),FuelReactivity=GetFuelReactivity(address),FuelConsumedLastTick=GetFuelConsumedLastTick(address),ReactorMasterSwitch=GetMasterSwitch(address,repo),RodLevelLimit=GetRodLevelLimit(address,repo),RodLevel=GetRodLevel(address,repo),TempLimit=GetTempLimit(address,repo),PowerTrigger=GetPowerTrigger(address,repo),SteamTrigger=GetSteamTrigger(address,repo),ReactorEnable=GetReactorActiver(address),Name=GetReactorName(address,repo),HotFluidProducedLastTick=GetHotFluidProducedLastTick(address),EnergyProducedLastTick=GetEnergyProducedLastTick(address)}
         idreactor = idreactor + 1
       end
+      if idreactor == 1 then
+        print("NO REACTOR DETECTED, EXIT PROGRAM IN 10SEC...")
+        os.exit()
+      end
   return tmpReactorList
 end
 
