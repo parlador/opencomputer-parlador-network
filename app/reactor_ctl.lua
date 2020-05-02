@@ -239,7 +239,7 @@ function ManageReactor(Reactorlist,ReactorLabel)
 end
 
 function ReactorActiveCooling(Reactor,Label)
-    if round(Reactor["PourcentageHotFuel"],0) < Label["SliderPowerTrigger"].value then
+    if round(Reactor["PourcentageHotFuel"],0) < Label["SliderSteamTrigger"].value then
             component.invoke(Reactor["Address"], "setActive", true)
             Label["Status"].text = "Running"
     else
