@@ -22,6 +22,10 @@ local files = {
 		path = "/app/reactor_mon.lua"
 	},
 	{
+		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/app/turbine_ctl.lua",
+		path = "/app/turbine_ctl.lua"
+	},
+	{
 		url = "https://raw.githubusercontent.com/parlador/opencomputer-parlador-network/master/installer/lib/gui_setup.lua",
 		path = "/tmp/setup/lib/gui_setup.lua"
 	},
